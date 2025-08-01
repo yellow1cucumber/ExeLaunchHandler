@@ -44,20 +44,23 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a87afe-402d-4003-b561-3b1fd69b65a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ExeLaunchHandler.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="79a87afe-402d-4003-b561-3b1fd69b65a4" name="Changes" comment="Add project configuration files for ExeLaunchHandler">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging/Logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/logging/Logger.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging/Logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/logging/Logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/Adapter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
@@ -72,6 +75,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -244,7 +252,6 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
@@ -402,8 +409,41 @@
       <workItem from="1753969904934" duration="1137000" />
       <workItem from="1753985038164" duration="2192000" />
       <workItem from="1754052277918" duration="811000" />
-      <workItem from="1754053111819" duration="11181000" />
+      <workItem from="1754053111819" duration="12393000" />
     </task>
+    <task id="LOCAL-00001" summary="Add .gitignore to exclude config.json and .venv directory">
+      <option name="closed" value="true" />
+      <created>1754074445866</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754074445866</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add fix_exports.py to .gitignore">
+      <option name="closed" value="true" />
+      <created>1754074489661</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754074489661</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add default entries to .gitignore for IDE and local storage files">
+      <option name="closed" value="true" />
+      <created>1754074544847</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754074544847</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add project configuration files for ExeLaunchHandler">
+      <option name="closed" value="true" />
+      <created>1754074673775</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754074673775</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,6 +453,13 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add .gitignore to exclude config.json and .venv directory" />
+    <MESSAGE value="Add fix_exports.py to .gitignore" />
+    <MESSAGE value="Add default entries to .gitignore for IDE and local storage files" />
+    <MESSAGE value="Add project configuration files for ExeLaunchHandler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add project configuration files for ExeLaunchHandler" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
