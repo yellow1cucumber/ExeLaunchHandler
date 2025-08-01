@@ -1,2 +1,3 @@
 /config.json
 /.venv/
+/scripts/fix_exports.py
