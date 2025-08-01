@@ -16,7 +16,7 @@
 namespace Logging {
     class EXELAUNCHHANDLER_LOGGING_API Logger {
     public:
-        static Logger& init(Configuration::LoggerConfig& config);
+        static Logger& init(const Configuration::LoggerConfig& config);
         static bool isInitialized() noexcept;
 
         [[nodiscard]]
@@ -38,7 +38,7 @@ namespace Logging {
         ~Logger() noexcept;
 
     private:
-        explicit Logger(Configuration::LoggerConfig& config);
+        explicit Logger(const Configuration::LoggerConfig& config);
 
         inline static std::unique_ptr<Logger> instance;
         inline static std::once_flag initOnce;

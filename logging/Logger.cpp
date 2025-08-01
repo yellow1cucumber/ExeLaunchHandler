@@ -7,7 +7,7 @@
 #include <thread>
 
 namespace Logging {
-    Logger::Logger(Configuration::LoggerConfig& config) : config(config) {
+    Logger::Logger(const Configuration::LoggerConfig& config) : config(config) {
         std::string logFilePath = this->config.logFile.value_or("log.txt");
         this->logFile = std::make_unique<std::ofstream>(logFilePath, std::ios::app);
         if (!this->logFile->is_open()) {
@@ -15,7 +15,7 @@ namespace Logging {
         }
     }
 
-    Logger &Logger::init(Configuration::LoggerConfig& config) {
+    Logger &Logger::init(const Configuration::LoggerConfig& config) {
         std::call_once(initOnce, [&]() {
             instance.reset(new Logger(config));
         });
