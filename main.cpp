@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
 
     options.add_options()
             ("c,config", "Config file path", cxxopts::value<std::string>())
-            ("h,help", "Show help message");
+            ("h,help", "Show help message"),
+            ("ui,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false"));
     const auto result = options.parse(argc, argv);
 
     if (result["help"].as<bool>()) {
@@ -32,24 +33,32 @@ int main(int argc, char *argv[]) {
     }
 
     Configuration::ConfigManager::init(std::make_unique<Configuration::Converting::JsonSerializer>(), configPath);
-    Configuration::ConfigManager& configManager{Configuration::ConfigManager::getInstance()};
+    Configuration::ConfigManager &configManager{Configuration::ConfigManager::getInstance()};
     configManager.loadFromFile(configPath);
 
     Logging::Logger::init(configManager.getCached()->loggerConfig);
-    Logging::Logger& logger{Logging::Logger::getInstance()};
-    logger.Info("Application loaded with configuration: " + configPath);
+    Logging::Logger::Info("Application loaded with configuration: " + configPath);
+
+    if (result["ui"].as<bool>()) {
+        Logging::Logger::Info("Loaded in UI mode");
+        QApplication a(argc, argv);
+
+        UI::MainWindow mainWindow;
+        mainWindow.show();
+
+        return QApplication::exec();
+    }
 
     Logging::Logger::Debug("Python bridge initialization start");
     PyBridge::Adapter adapter;
     adapter.Initialize();
-    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
 
-    QApplication a(argc, argv);
-
-    UI::MainWindow mainWindow;
-    mainWindow.show();
-
-    return QApplication::exec();
+    // TODO:
+    // add pipes execution logic;
+    // add tab for scripts listing;
+    // add more logging information;
+    // prettify main.cpp
+    // make python adapter singleton or make list of pipes static
 
     adapter.Finalize();
 }
