@@ -33,22 +33,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Enhance Logger class to filter log messages based on configured log level">
-      <change afterPath="$PROJECT_DIR$/python_bridge/src/internal/definitions/export_logger.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_bridge/src/internal/definitions/module.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_bridge/src/internal/definitions/python_pipe.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_bridge/src/internal/definitions/register_pipe_fun.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/CMakeLists.txt" afterDir="false" />
+    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization">
+      <change afterPath="$PROJECT_DIR$/CMakeSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/Adapter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/Adapter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/FuncDefinition.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/PipeDefinition.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +128,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.ExeLaunchHandler">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExeLaunchHandler" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
@@ -155,9 +147,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Debug.ExeLaunchHandler" />
       <item itemvalue="CMake Application.ExeLaunchHandler.UI" />
       <item itemvalue="CMake Application.ExeLaunchHandler" />
+      <item itemvalue="CMake Debug.ExeLaunchHandler" />
     </list>
     <recent_temporary>
       <list>
@@ -174,7 +166,7 @@
       <updated>1754076556488</updated>
       <workItem from="1754076558495" duration="894000" />
       <workItem from="1754148791153" duration="6611000" />
-      <workItem from="1754156742564" duration="5000" />
+      <workItem from="1754156742564" duration="515000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor project configuration and enhance command line options for UI mode">
       <option name="closed" value="true" />
@@ -192,7 +184,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754149153126</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add logger integration and export functionality for Python pipes">
+      <option name="closed" value="true" />
+      <created>1754157192689</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754157192689</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization">
+      <option name="closed" value="true" />
+      <created>1754157231324</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754157231324</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +214,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor project configuration and enhance command line options for UI mode" />
     <MESSAGE value="Enhance Logger class to filter log messages based on configured log level" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance Logger class to filter log messages based on configured log level" />
+    <MESSAGE value="Add logger integration and export functionality for Python pipes" />
+    <MESSAGE value="{&#13;&#10;    &quot;error&quot;: {&#13;&#10;        &quot;message&quot;: &quot;You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.&quot;,&#13;&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#13;&#10;        &quot;param&quot;: null,&#13;&#10;        &quot;code&quot;: null&#13;&#10;    }&#13;&#10;}" />
+    <MESSAGE value="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization" />
   </component>
 </project>

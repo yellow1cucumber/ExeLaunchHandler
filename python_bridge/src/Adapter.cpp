@@ -12,7 +12,7 @@ namespace PyBridge {
             interpreter = std::make_unique<py::scoped_interpreter>();
         }
 
-        const py::module_ mainModule{ py::module_::import(this->moduleName) };
+        const py::module_ mainModule{ py::module_::import(PyBridge::Adapter::moduleName) };
         py::object pyLogger{ py::cast(logger) };
         mainModule.attr("logger") = pyLogger;
 
