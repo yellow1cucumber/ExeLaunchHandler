@@ -16,9 +16,11 @@ int main(int argc, char *argv[]) {
     };
 
     options.add_options()
-            ("c,config", "Config file path", cxxopts::value<std::string>())
-            ("h,help", "Show help message"),
-            ("ui,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false"));
+        ("c,config", "Config file path", cxxopts::value<std::string>())
+        ("h,help", "Show help message")
+        ("u,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false")->implicit_value("true"));
+
+
     const auto result = options.parse(argc, argv);
 
     if (result["help"].as<bool>()) {
