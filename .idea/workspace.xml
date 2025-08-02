@@ -33,12 +33,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ExeLaunchHandler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ExeLaunchHandler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Refactor project configuration and enhance command line options for UI mode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging/Logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/logging/Logger.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,8 +152,17 @@
       <option name="presentableId" value="Default" />
       <updated>1754076556488</updated>
       <workItem from="1754076558495" duration="894000" />
-      <workItem from="1754148791153" duration="200000" />
+      <workItem from="1754148791153" duration="318000" />
     </task>
+    <task id="LOCAL-00001" summary="Refactor project configuration and enhance command line options for UI mode">
+      <option name="closed" value="true" />
+      <created>1754149026908</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754149026908</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,5 +172,9 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactor project configuration and enhance command line options for UI mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor project configuration and enhance command line options for UI mode" />
   </component>
 </project>

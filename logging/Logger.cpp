@@ -34,6 +34,10 @@ namespace Logging {
     }
 
     void Logger::Log(const Constants::WARN_LEVELS &logLevel, const std::string_view &message) {
+        if (logLevel < this->config.logLevel) {
+            return;
+        }
+
         std::lock_guard lock(writeMutex);
 
         if (this->logFile && this->logFile->is_open()) {
