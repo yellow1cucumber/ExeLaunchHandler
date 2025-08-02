@@ -7,10 +7,15 @@
 #include "internal/PythonPipeRegistry.h"
 
 namespace PyBridge {
-    void Adapter::Initialize() {
+    void Adapter::Initialize(const Logging::Logger &logger) {
         if (!interpreter) {
             interpreter = std::make_unique<py::scoped_interpreter>();
         }
+
+        const py::module_ mainModule{ py::module_::import(this->moduleName) };
+        py::object pyLogger{ py::cast(logger) };
+        mainModule.attr("logger") = pyLogger;
+
         Details::PythonPipeRegistry::init();
     }
 

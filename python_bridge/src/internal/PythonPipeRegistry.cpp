@@ -48,7 +48,7 @@ namespace PyBridge::Details {
         return ResultAPI::Result<void>::Ok();
     }
 
-    void PythonPipeRegistry::add(PythonPipeDefinition pipeDesc) {
+    void PythonPipeRegistry::add(Definitions::PythonPipeDefinition pipeDesc) {
         this->pipes.push_back(std::move(pipeDesc));
     }
 
@@ -56,7 +56,7 @@ namespace PyBridge::Details {
         this->pipes.clear();
     }
 
-    const std::vector<PythonPipeDefinition> &PythonPipeRegistry::getPipes() const noexcept {
+    const std::vector<Definitions::PythonPipeDefinition> &PythonPipeRegistry::getPipes() const noexcept {
         return this->pipes;
     }
 

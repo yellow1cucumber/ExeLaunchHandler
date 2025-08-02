@@ -18,13 +18,15 @@ find_package(pybind11 CONFIG REQUIRED)
 include_directories(logging results_api pipes)
 
 set(SOURCES
-        src/internal/PipeDefinition.h
         src/internal/PythonPipeRegistry.cpp
         src/internal/PythonPipeRegistry.h
-        src/internal/FuncDefinition.cpp
         src/Adapter.cpp
         src/Adapter.h
         src/export.h
+        src/internal/definitions/export_logger.h
+        src/internal/definitions/python_pipe.h
+        src/internal/definitions/module.cpp
+        src/internal/definitions/register_pipe_fun.h
 )
 
 add_library(ExeLaunchHandler.PyPipeBridge SHARED ${SOURCES})

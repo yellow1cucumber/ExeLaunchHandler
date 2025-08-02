@@ -4,12 +4,14 @@
 
 #ifndef PYTHONPIPEREGISTRY_H
 #define PYTHONPIPEREGISTRY_H
+
+#include <pybind11/pybind11.h>
 #include <vector>
 
-#include "PipeDefinition.h"
 #include "../../../logging/Logger.h"
 #include "../../../results_api/Result.h"
 #include "../export.h"
+#include "definitions/python_pipe.h"
 
 namespace PyBridge::Details {
     class EXELAUNCHHANDLER_PYPIPEBRIDGE_API PythonPipeRegistry {
@@ -30,17 +32,17 @@ namespace PyBridge::Details {
 
         static ResultAPI::Result<void> loadFromDirectory(const std::string &dir);
 
-        void add(PythonPipeDefinition pipeDesc);
+        void add(Definitions::PythonPipeDefinition pipeDesc);
 
         void clear();
 
         [[nodiscard]]
-        const std::vector<PythonPipeDefinition> &getPipes() const noexcept;
+        const std::vector<Definitions::PythonPipeDefinition> &getPipes() const noexcept;
 
     private:
         PythonPipeRegistry();
 
-        std::vector<PythonPipeDefinition> pipes;
+        std::vector<Definitions::PythonPipeDefinition> pipes;
         Logging::Logger &logger;
 
         inline static std::unique_ptr<PythonPipeRegistry> instance;
