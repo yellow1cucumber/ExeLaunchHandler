@@ -5,6 +5,7 @@
 
 #include "cxxopts.hpp"
 #include "Logger.h"
+#include "PipelineSync.h"
 #include "config/ConfigManager.h"
 #include "config/converting/JsonSerializer.h"
 #include "ui/main_window/mainwindow.h"
@@ -53,7 +54,31 @@ int main(int argc, char *argv[]) {
 
     Logging::Logger::Debug("Python bridge initialization start");
     PyBridge::Adapter adapter;
-    adapter.Initialize();
+    adapter.Initialize(Logging::Logger::getInstance());
+    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
+    Logging::Logger::Debug("Python bridge initialization complete");
+
+    Pipes::PipelineSync pipelineSync{ false };
+    for (auto &pipe : adapter.GetRegisteredPipes()) {
+        Logging::Logger::Info("Registered pipe: " + pipe.GetName());
+
+        pipe.onStart = [&pipe]() {
+            Logging::Logger::Info("Pipe started: " + pipe.GetName());
+        };
+        pipe.onFinish = [&pipe]() {
+            Logging::Logger::Info("Pipe finished: " + pipe.GetName());
+        };
+
+        pipelineSync.AddStage(pipe);
+    }
+
+    const auto& executionResult = pipelineSync.Execute();
+
+    adapter.Finalize();
+    if (executionResult.isOk()) {
+        return 0;
+    }
+    return 1;
 
     // TODO:
     // add pipes execution logic;
@@ -61,6 +86,4 @@ int main(int argc, char *argv[]) {
     // add more logging information;
     // prettify main.cpp
     // make python adapter singleton or make list of pipes static
-
-    adapter.Finalize();
 }
