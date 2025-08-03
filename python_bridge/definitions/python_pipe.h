@@ -8,7 +8,7 @@
 #include <string>
 #include <pybind11/pytypes.h>
 
-#include "src/export.h"
+#include "../export.h"
 
 namespace PyBridge::Definitions {
 

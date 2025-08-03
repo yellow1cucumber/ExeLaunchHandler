@@ -4,7 +4,7 @@
 
 #include "Adapter.h"
 
-#include "internal/PythonPipeRegistry.h"
+#include "PythonPipeRegistry.h"
 
 namespace PyBridge {
     void Adapter::Initialize(const Logging::Logger &logger) {
@@ -12,7 +12,8 @@ namespace PyBridge {
             interpreter = std::make_unique<py::scoped_interpreter>();
         }
 
-        const py::module_ mainModule{ py::module_::import(PyBridge::Adapter::moduleName) };
+        Logging::Logger::Debug("Trying to import Python module: " + std::string(moduleName));
+        const py::module_ mainModule{ py::module_::import("pybridge") };
         py::object pyLogger{ py::cast(logger) };
         mainModule.attr("logger") = pyLogger;
 

@@ -1,4 +1,4 @@
-#include "src/Adapter.h"
+#include "python_bridge/Adapter.h"
 
 #include <iostream>
 #include <QApplication>

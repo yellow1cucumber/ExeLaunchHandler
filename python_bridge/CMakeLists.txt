@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.31)
 project(ExeLaunchHandler.PyPipeBridge)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -16,17 +16,18 @@ list(APPEND CMAKE_PREFIX_PATH "${PYBIND11_CMAKE_DIR}")
 find_package(pybind11 CONFIG REQUIRED)
 
 include_directories(logging results_api pipes)
+add_subdirectory(definitions)
 
 set(SOURCES
-        src/internal/PythonPipeRegistry.cpp
-        src/internal/PythonPipeRegistry.h
-        src/Adapter.cpp
-        src/Adapter.h
-        src/export.h
-        src/internal/definitions/export_logger.h
-        src/internal/definitions/python_pipe.h
-        src/internal/definitions/module.cpp
-        src/internal/definitions/register_pipe_fun.h
+        PythonPipeRegistry.cpp
+        PythonPipeRegistry.h
+        Adapter.cpp
+        Adapter.h
+        export.h
+        definitions/export_logger.h
+        definitions/python_pipe.h
+        definitions/module.cpp
+        definitions/register_pipe_fun.h
 )
 
 add_library(ExeLaunchHandler.PyPipeBridge SHARED ${SOURCES})

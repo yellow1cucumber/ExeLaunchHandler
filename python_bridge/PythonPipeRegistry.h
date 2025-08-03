@@ -8,9 +8,9 @@
 #include <pybind11/pybind11.h>
 #include <vector>
 
-#include "../../../logging/Logger.h"
-#include "../../../results_api/Result.h"
-#include "../export.h"
+#include "../../logging/Logger.h"
+#include "../../results_api/Result.h"
+#include "export.h"
 #include "definitions/python_pipe.h"
 
 namespace PyBridge::Details {

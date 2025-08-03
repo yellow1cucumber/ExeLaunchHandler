@@ -4,11 +4,11 @@
 
 #ifndef ADAPTER_H
 #define ADAPTER_H
-#include "../../results_api/Result.h"
+#include "../results_api/Result.h"
 #include <pybind11/pybind11.h>
 #include <pybind11/embed.h>
 
-#include "../../pipes/Pipe.h"
+#include "../pipes/Pipe.h"
 #include "export.h"
 #include "Logger.h"
 

@@ -8,6 +8,7 @@
 #include <pybind11/pybind11.h>
 
 #include "Logger.h"
+
 namespace py = pybind11;
 
 namespace PyBridge::Definitions {

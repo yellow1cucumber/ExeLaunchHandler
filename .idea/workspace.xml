@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
@@ -19,23 +20,48 @@
     <generated>
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Config" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Constants" />
-      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.PyPipeBridge" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.UI" />
-      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler" />
+      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.PyPipeBridge" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Pipes" />
+      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.ResultsAPI" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Logging" />
+      <config projectName="ExeLaunchHandler" targetName="pipebridge" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot; -DCMAKE_PREFIX_PATH=&quot;C:/Qt/5.12.12/msvc2017_64&quot;" />
+      <configuration PROFILE_NAME="Debug-MSVC" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Visual Studio" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot; -DCMAKE_PREFIX_PATH=&quot;C:/Qt/5.12.12/msvc2017_64&quot;">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="RC" value="C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="Debug-System" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="System" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot; -DCMAKE_PREFIX_PATH=&quot;C:/Qt/5.12.12/msvc2017_64&quot;">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="RC" value="C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization">
-      <change afterPath="$PROJECT_DIR$/CMakeSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/src/Adapter.cpp" afterDir="false" />
+    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Refactor Adapter module to use static module name and update workspace configuration">
+      <change afterPath="$PROJECT_DIR$/python_bridge/definitions/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/Adapter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/Adapter.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/Adapter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/export.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/export.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/PythonPipeRegistry.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/PythonPipeRegistry.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/PythonPipeRegistry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/definitions/export_logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/definitions/export_logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/definitions/module.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/definitions/module.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/definitions/python_pipe.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/definitions/python_pipe.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_bridge/src/internal/definitions/register_pipe_fun.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/definitions/register_pipe_fun.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +71,12 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-System" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -69,20 +96,16 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/logging/Logger.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/python_bridge/Adapter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/python_bridge/Adapter.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="1.4" />
+    <option name="productBranch" value="Classic" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -96,52 +119,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;CMake Application.ExeLaunchHandler.UI.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.ExeLaunchHandler.executor&quot;: &quot;Debug&quot;,
-    &quot;CMake Debug.ExeLaunchHandler.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/source/repos/open-source/ExeLaunchHandler/cmake-build-debug&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.ExeLaunchHandler.UI.executor": "Run",
+    "CMake Application.ExeLaunchHandler.executor": "Run",
+    "CMake Debug.ExeLaunchHandler.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/User/source/repos/open-source/ExeLaunchHandler/cmake-build-debug",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug" />
       <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug-visual-studio" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\python_bridge" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\python_bridge\src\internal\definitions" />
+    </key>
   </component>
   <component name="RunManager" selected="CMake Application.ExeLaunchHandler">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ExeLaunchHandler" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
-    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="true" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="true" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug-System" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json --ui" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json --ui" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug-System" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pipebridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="pipebridge" CONFIG_NAME="Debug-System">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -149,6 +182,7 @@
     <list>
       <item itemvalue="CMake Application.ExeLaunchHandler.UI" />
       <item itemvalue="CMake Application.ExeLaunchHandler" />
+      <item itemvalue="CMake Application.pipebridge" />
       <item itemvalue="CMake Debug.ExeLaunchHandler" />
     </list>
     <recent_temporary>
@@ -166,7 +200,8 @@
       <updated>1754076556488</updated>
       <workItem from="1754076558495" duration="894000" />
       <workItem from="1754148791153" duration="6611000" />
-      <workItem from="1754156742564" duration="515000" />
+      <workItem from="1754156742564" duration="3844000" />
+      <workItem from="1754244211375" duration="1761000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor project configuration and enhance command line options for UI mode">
       <option name="closed" value="true" />
@@ -200,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754157231324</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactor Adapter module to use static module name and update workspace configuration">
+      <option name="closed" value="true" />
+      <created>1754157281386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754157281386</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +260,19 @@
     <MESSAGE value="Add logger integration and export functionality for Python pipes" />
     <MESSAGE value="{&#13;&#10;    &quot;error&quot;: {&#13;&#10;        &quot;message&quot;: &quot;You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.&quot;,&#13;&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#13;&#10;        &quot;param&quot;: null,&#13;&#10;        &quot;code&quot;: null&#13;&#10;    }&#13;&#10;}" />
     <MESSAGE value="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization" />
+    <MESSAGE value="Refactor Adapter module to use static module name and update workspace configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Adapter module to use static module name and update workspace configuration" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="$rdi" />
+        <watch expression="$rdi" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

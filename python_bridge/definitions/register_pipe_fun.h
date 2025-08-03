@@ -8,7 +8,7 @@
 #include <pybind11/pybind11.h>
 
 #include "python_pipe.h"
-#include "src/internal/PythonPipeRegistry.h"
+#include "PythonPipeRegistry.h"
 
 namespace py = pybind11;
 
