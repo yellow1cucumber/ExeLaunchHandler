@@ -34,13 +34,20 @@ namespace PyBridge::Details {
         const py::module_ sys = py::module::import("sys");
         sys.attr("path").cast<py::list>().append(dir);
 
+        if (!instance->isDirExists(dir))
+        {
+			Logging::Logger::Info("Directory does not exist: " + dir + ". Creating it.");
+            instance->createDir(dir);
+			Logging::Logger::Info("Directory created: " + dir);
+        }
+
         for (const auto &entry: fs::directory_iterator{dir}) {
             if (entry.path().extension() == ".py") {
                 try {
                     py::module_::import(entry.path().stem().string().c_str());
                 } catch (const py::error_already_set &e) {
                     const auto errorMessage = "Failed to import Python module: " + entry.path().string() + " Error: " + std::string(e.what());
-                    instance->logger.Error(errorMessage);
+                    Logging::Logger::Error(errorMessage);
                     return ResultAPI::Result<void>::Error(errorMessage, std::current_exception());
                 }
             }
@@ -60,6 +67,13 @@ namespace PyBridge::Details {
         return this->pipes;
     }
 
-    PythonPipeRegistry::PythonPipeRegistry() : logger(Logging::Logger::getInstance()) {
+    bool PythonPipeRegistry::isDirExists(const std::string& dirPath) const noexcept
+    {
+        return std::filesystem::exists(dirPath) && std::filesystem::is_directory(dirPath);
+    }
+
+    void PythonPipeRegistry::createDir(const std::string& dirPath)
+    {
+		std::filesystem::create_directories(dirPath);
     }
 }

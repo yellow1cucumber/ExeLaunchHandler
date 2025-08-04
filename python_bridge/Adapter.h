@@ -17,7 +17,7 @@ namespace py = pybind11;
 namespace PyBridge {
     class EXELAUNCHHANDLER_PYPIPEBRIDGE_API Adapter {
     public:
-        void Initialize(const Logging::Logger &logger);
+        void Initialize(const char* argv0);
 
         void LoadScriptsFromDir(const std::string &dir) const;
 
@@ -30,6 +30,9 @@ namespace PyBridge {
         static constexpr const char* moduleName{ "pipebridge" };
     private:
         std::unique_ptr<py::scoped_interpreter> interpreter;
+
+        void setExePathToSys(const char* argv);
+		void importPipeBridgeModule();
     };
 } // PyBridge
 

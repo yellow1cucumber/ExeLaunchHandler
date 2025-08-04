@@ -1,23 +1,20 @@
-//
-// Created by User on 27.07.2025.
-//
-
 #include "Adapter.h"
 
 #include "PythonPipeRegistry.h"
 
 namespace PyBridge {
-    void Adapter::Initialize(const Logging::Logger &logger) {
+    void PyBridge::Adapter::Initialize(const char* argv0) {
         if (!interpreter) {
             interpreter = std::make_unique<py::scoped_interpreter>();
         }
 
-        Logging::Logger::Debug("Trying to import Python module: " + std::string(moduleName));
-        const py::module_ mainModule{ py::module_::import("pipebridge") };
-        py::object pyLogger{ py::cast(logger) };
-        mainModule.attr("logger") = pyLogger;
-
+		Logging::Logger::Debug("Initializing PythonPipeRegistry");
         Details::PythonPipeRegistry::init();
+
+        this->setExePathToSys(argv0);
+		this->importPipeBridgeModule();
+
+		Logging::Logger::Debug("PythonPipeRegistry initialized successfully");
     }
 
     void Adapter::LoadScriptsFromDir(const std::string &dir) const {
@@ -31,6 +28,9 @@ namespace PyBridge {
     }
 
     void Adapter::Finalize() {
+        Details::PythonPipeRegistry::getInstance().clear();
+		py::module_::import("gc").attr("collect")();
+
         interpreter.reset();
     }
 
@@ -71,5 +71,38 @@ namespace PyBridge {
             );
         }
         return pipes;
+    }
+    void PyBridge::Adapter::setExePathToSys(const char* argv)
+    {
+		Logging::Logger::Debug("Setting executable path to sys.path: " + std::string(argv));
+        try
+        {
+            auto sysModule = py::module_::import("sys");
+            sysModule.attr("path").attr("insert")(0, py::str(argv));
+            Logging::Logger::Debug("Set executable path to sys.path: " + std::string(argv));
+        }
+        catch (const std::exception& ex)
+        {
+            Logging::Logger::Critical("Failed to set executable path to sys.path: " + std::string(argv));
+            Logging::Logger::Critical(ex.what());
+			throw std::runtime_error("Failed to set executable path to sys.path: " + std::string(argv) + " - " + ex.what());
+        }
+		Logging::Logger::Debug("Executable path set to sys.path: " + std::string(argv));
+    }
+
+    void PyBridge::Adapter::importPipeBridgeModule()
+    {
+        Logging::Logger::Debug("Trying to import Python module: " + std::string(moduleName));
+        try
+        {
+            const py::module_ mainModule{ py::module_::import(this->moduleName) };
+        }
+        catch (const std::exception& ex)
+        {
+            Logging::Logger::Critical("Failed to import Python module: " + std::string(moduleName));
+            Logging::Logger::Critical(ex.what());
+			throw std::runtime_error("Failed to import Python module: " + std::string(moduleName) + " - " + ex.what());
+        }
+        Logging::Logger::Debug("Python module imported successfully: " + std::string(moduleName));
     }
 } // PyBridge

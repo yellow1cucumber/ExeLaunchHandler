@@ -3,42 +3,49 @@ project(ExeLaunchHandler.PyPipeBridge)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+include(FetchContent)
 
-# Получаем путь до cmake-модулей pybind11
-execute_process(
-        COMMAND "${Python3_EXECUTABLE}" -m pybind11 --cmakedir
-        OUTPUT_VARIABLE PYBIND11_CMAKE_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
+# Загрузим pybind11 из GitHub
+FetchContent_Declare(
+    pybind11
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+    GIT_TAG        v2.11.1  # можно обновить до актуального
 )
 
-list(APPEND CMAKE_PREFIX_PATH "${PYBIND11_CMAKE_DIR}")
-find_package(pybind11 CONFIG REQUIRED)
+FetchContent_MakeAvailable(pybind11)
 
-include_directories(logging results_api pipes)
+# Твои зависимости
 add_subdirectory(definitions)
+include_directories(logging results_api pipes)
 
+# Исходники библиотеки
 set(SOURCES
-        PythonPipeRegistry.cpp
-        PythonPipeRegistry.h
-        Adapter.cpp
-        Adapter.h
-        export.h
-        definitions/export_logger.h
-        definitions/python_pipe.h
-        definitions/module.cpp
-        definitions/register_pipe_fun.h
+    PythonPipeRegistry.cpp
+    PythonPipeRegistry.h
+    Adapter.cpp
+    Adapter.h
+    export.h
+    definitions/export_logger.h
+    definitions/python_pipe.h
+    definitions/module.cpp
+    definitions/register_pipe_fun.h
 )
 
+# Создание библиотеки
 add_library(ExeLaunchHandler.PyPipeBridge SHARED ${SOURCES})
 target_compile_definitions(ExeLaunchHandler.PyPipeBridge PRIVATE EXELAUNCHHANDLER_PYPIPEBRIDGE_EXPORTS)
 
+# Подключение include'ов
 target_include_directories(ExeLaunchHandler.PyPipeBridge
-        PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+# Линковка с зависимостями
 target_link_libraries(ExeLaunchHandler.PyPipeBridge
-        PUBLIC pybind11::embed
-        PUBLIC ExeLaunchHandler.ResultsAPI ExeLaunchHandler.Logging ExeLaunchHandler.Pipes
+    PUBLIC
+        pybind11::embed
+        ExeLaunchHandler.ResultsAPI
+        ExeLaunchHandler.Logging
+        ExeLaunchHandler.Pipes
 )

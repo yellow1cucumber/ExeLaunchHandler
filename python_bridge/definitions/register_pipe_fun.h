@@ -17,14 +17,14 @@ namespace PyBridge::Definitions {
         m.def("register_pipe",
               [](const std::string &name,
                  py::function& func,
-                 const std::optional<std::string> &desc) {
+                 const std::string &desc) {
                   Details::PythonPipeRegistry::getInstance().add(
                       PythonPipeDefinition{name, desc, std::move(func)}
                   );
               },
               py::arg("name"),
               py::arg("func"),
-              py::arg("description") = std::nullopt);
+              py::arg("description"));
     }
 }
 
