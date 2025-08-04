@@ -74,6 +74,7 @@ namespace Logging {
     std::string LineMessageBuilder::buildThreadId() const {
         const std::thread::id id{std::this_thread::get_id()};
         thread_local std::stringstream ss;
+        ss.str("");
         ss.clear();
         ss << id;
         return ss.str();
