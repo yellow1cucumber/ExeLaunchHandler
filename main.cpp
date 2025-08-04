@@ -63,10 +63,10 @@ int main(int argc, char *argv[]) {
     for (auto &pipe : adapter.GetRegisteredPipes()) {
         Logging::Logger::Info("Registered pipe: " + pipe.GetName());
 
-        pipe.onStart = [&pipe]() {
+        pipe.onStart = [pipe]() {
             Logging::Logger::Info("Pipe started: " + pipe.GetName());
         };
-        pipe.onFinish = [&pipe]() {
+        pipe.onFinish = [pipe]() {
             Logging::Logger::Info("Pipe finished: " + pipe.GetName());
         };
 
@@ -82,9 +82,7 @@ int main(int argc, char *argv[]) {
     return 1;
 
     // TODO:
-    // add pipes execution logic;
     // add tab for scripts listing;
     // add more logging information;
     // prettify main.cpp
-    // make python adapter singleton or make list of pipes static
 }
