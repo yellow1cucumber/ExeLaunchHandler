@@ -15,7 +15,7 @@ namespace Pipes {
     public:
         explicit Pipe(std::string name,
                       const std::function<ResultAPI::Result<void>()> &action,
-                      std::optional<std::string> description = std::nullopt);
+                      std::string description);
 
         Pipe(const Pipe &) = default;
 
@@ -36,7 +36,7 @@ namespace Pipes {
 
     private:
         std::string name;
-        std::optional<std::string> description;
+        std::string description;
         std::function<ResultAPI::Result<void>()> action;
     };
 } // Pipes

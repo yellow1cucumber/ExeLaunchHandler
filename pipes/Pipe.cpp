@@ -9,7 +9,7 @@
 namespace Pipes {
     Pipe::Pipe(std::string name,
                 const std::function<ResultAPI::Result<void>()> &action,
-                std::optional<std::string> description)
+                std::string description)
     : name(std::move(name)), description(std::move(description)), action(action) {}
 
     const std::string &Pipe::GetName() const noexcept {
@@ -17,7 +17,7 @@ namespace Pipes {
     }
 
     std::string_view Pipe::GetDescription() const noexcept {
-        return this->description.value_or("No description provided");
+        return this->description.empty() ? "No description provided" : this->description;
     }
 
     ResultAPI::Result<void> Pipe::Run() {

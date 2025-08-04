@@ -26,14 +26,13 @@ namespace Pipes {
 
         [[nodiscard]]
         PipelineSync &AddStage(std::string name,
-                               std::optional<std::string> description,
+                               std::string description,
                                std::function<ResultAPI::Result<void>()> action);
 
         [[nodiscard]]
         PipelineSync &AddStage(Pipe pipe);
 
     private:
-        std::shared_ptr<Logging::Logger> logger;
         bool cancelOnFatal;
 
         void logResult(const std::string &pipeName, const ResultAPI::Result<void> &result) const;
