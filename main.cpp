@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 
     Logging::Logger::init(configManager.getCached()->loggerConfig);
     Logging::Logger::Info("Application loaded with configuration: " + configPath);
+    auto &logger{Logging::Logger::getInstance()};
 
     if (result["ui"].as<bool>()) {
         Logging::Logger::Info("Loaded in UI mode");
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
 
     Logging::Logger::Debug("Python bridge initialization start");
     PyBridge::Adapter adapter;
-    adapter.Initialize(Logging::Logger::getInstance());
+    adapter.Initialize(argv[0]);
     adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
     Logging::Logger::Debug("Python bridge initialization complete");
 
