@@ -17,9 +17,9 @@ int main(int argc, char *argv[]) {
     };
 
     options.add_options()
-        ("c,config", "Config file path", cxxopts::value<std::string>())
-        ("h,help", "Show help message")
-        ("u,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false")->implicit_value("true"));
+            ("c,config", "Config file path", cxxopts::value<std::string>())
+            ("h,help", "Show help message")
+            ("u,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false")->implicit_value("true"));
 
 
     const auto result = options.parse(argc, argv);
@@ -43,6 +43,12 @@ int main(int argc, char *argv[]) {
     Logging::Logger::Info("Application loaded with configuration: " + configPath);
     auto &logger{Logging::Logger::getInstance()};
 
+    Logging::Logger::Debug("Python bridge initialization start");
+    PyBridge::Adapter adapter;
+    adapter.Initialize(argv[0]);
+    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
+    Logging::Logger::Debug("Python bridge initialization complete");
+
     if (result["ui"].as<bool>()) {
         Logging::Logger::Info("Loaded in UI mode");
         QApplication a(argc, argv);
@@ -53,14 +59,8 @@ int main(int argc, char *argv[]) {
         return QApplication::exec();
     }
 
-    Logging::Logger::Debug("Python bridge initialization start");
-    PyBridge::Adapter adapter;
-    adapter.Initialize(argv[0]);
-    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
-    Logging::Logger::Debug("Python bridge initialization complete");
-
-    Pipes::PipelineSync pipelineSync{ false };
-    for (auto &pipe : adapter.GetRegisteredPipes()) {
+    Pipes::PipelineSync pipelineSync{false};
+    for (auto &pipe: adapter.GetRegisteredPipes()) {
         Logging::Logger::Info("Registered pipe: " + pipe.GetName());
 
         pipe.onStart = [pipe]() {
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
         pipelineSync.AddStage(pipe);
     }
 
-    const auto& executionResult = pipelineSync.Execute();
+    const auto &executionResult = pipelineSync.Execute();
 
     adapter.Finalize();
     if (executionResult.isOk()) {
