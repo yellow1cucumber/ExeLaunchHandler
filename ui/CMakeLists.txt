@@ -7,31 +7,36 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS
-    Core
-    Gui
-    Widgets
-    REQUIRED
+        Core
+        Gui
+        Widgets
+        REQUIRED
 )
 
+include_directories(main_window config_managment_widget pipes_tab)
+
 set(SOURCES
-    main_window/mainwindow.cpp
-    main_window/mainwindow.h
-    main_window/mainwindow.ui
-    config_managment_widget/configtab.cpp
-    config_managment_widget/configtab.h
-    config_managment_widget/configtab.ui
+        main_window/mainwindow.cpp
+        main_window/mainwindow.h
+        main_window/mainwindow.ui
+        config_managment_widget/configtab.cpp
+        config_managment_widget/configtab.h
+        config_managment_widget/configtab.ui
+        pipes_tab/pipestab.cpp
+        pipes_tab/pipestab.h
+        pipes_tab/pipestab.ui
 )
 
 add_library(ExeLaunchHandler.UI SHARED ${SOURCES})
 
 target_link_libraries(ExeLaunchHandler.UI
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Widgets
-    ExeLaunchHandler.Config
-    ExeLaunchHandler.Constants
+        Qt5::Core
+        Qt5::Gui
+        Qt5::Widgets
+        ExeLaunchHandler.Config
+        ExeLaunchHandler.Constants
 )
 
 target_compile_definitions(ExeLaunchHandler.UI
-    PRIVATE ExeLaunchHandler_UI_EXPORTS
+        PRIVATE ExeLaunchHandler_UI_EXPORTS
 )
