@@ -13,7 +13,7 @@ namespace PyBridge {
         }
 
         Logging::Logger::Debug("Trying to import Python module: " + std::string(moduleName));
-        const py::module_ mainModule{ py::module_::import("pybridge") };
+        const py::module_ mainModule{ py::module_::import("pipebridge") };
         py::object pyLogger{ py::cast(logger) };
         mainModule.attr("logger") = pyLogger;
 

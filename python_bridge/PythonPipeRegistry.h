@@ -8,8 +8,8 @@
 #include <pybind11/pybind11.h>
 #include <vector>
 
-#include "../../logging/Logger.h"
-#include "../../results_api/Result.h"
+#include "Logger.h"
+#include "Result.h"
 #include "export.h"
 #include "definitions/python_pipe.h"
 

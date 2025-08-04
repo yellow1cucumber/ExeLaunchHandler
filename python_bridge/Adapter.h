@@ -8,7 +8,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/embed.h>
 
-#include "../pipes/Pipe.h"
+#include "Pipe.h"
 #include "export.h"
 #include "Logger.h"
 

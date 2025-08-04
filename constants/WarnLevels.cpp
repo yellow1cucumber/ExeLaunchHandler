@@ -1,4 +1,5 @@
-#include "warnlevels.h"
+#include "WarnLevels.h"
+
 #include <stdexcept>
 
 namespace Constants {
