@@ -1,3 +1,5 @@
 /config.json
 /.venv/
 /scripts/fix_exports.py
+/out/build/x64-Debug
+/.vs
