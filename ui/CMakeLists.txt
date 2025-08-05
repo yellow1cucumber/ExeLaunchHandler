@@ -22,6 +22,8 @@ set(SOURCES
         config_managment_widget/configtab.cpp
         config_managment_widget/configtab.h
         config_managment_widget/configtab.ui
+        warnings/ErrorDisplay.cpp
+        warnings/ErrorDisplay.h
 )
 
 add_library(ExeLaunchHandler.UI SHARED ${SOURCES})
