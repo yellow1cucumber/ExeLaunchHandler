@@ -3,3 +3,4 @@
 /scripts/fix_exports.py
 /out/build/x64-Debug
 /.vs
+/Output/setup.exe
