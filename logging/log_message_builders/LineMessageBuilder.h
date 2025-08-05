@@ -14,7 +14,7 @@ namespace Logging {
     public:
         [[nodiscard]] std::string Build() const;
 
-        LineMessageBuilder &SetLogLevel(Constants::WARN_LEVELS logLevel) noexcept;
+        LineMessageBuilder &SetLogLevel(Constants::Warn::WARN_LEVELS logLevel) noexcept;
         LineMessageBuilder &SetMessage(std::string_view message);
 
     private:

@@ -8,14 +8,14 @@
 
 namespace Pipes {
     PipelineSync::PipelineSync(bool cancelOnFatal) noexcept
-        : logger(&Logging::Logger::getInstance()), cancelOnFatal(cancelOnFatal) {
+        : cancelOnFatal(cancelOnFatal) {
     }
 
     ResultAPI::Result<void> PipelineSync::Execute() {
         if (this->onStart) this->onStart();
 
         for (auto &pipe: this->pipes) {
-            this->logger->Info("Start to processing pipe: " + std::string{pipe.GetName()});
+            Logging::Logger::Info("Start to processing pipe: " + std::string{pipe.GetName()});
             const auto result{pipe.Run()};
 
             this->logResult(pipe.GetName(), result);
@@ -28,7 +28,7 @@ namespace Pipes {
 
         if (this->onFinish) this->onFinish();
 
-        this->logger->Info("Pipeline finished");
+        Logging::Logger::Info("Pipeline finished");
         return ResultAPI::Result<void>::Ok("Pipeline executed successfully.");
     }
 
@@ -37,7 +37,7 @@ namespace Pipes {
     }
 
     PipelineSync &PipelineSync::AddStage(std::string name,
-                                         std::optional<std::string> description,
+                                         std::string description,
                                          std::function<ResultAPI::Result<void>()> action) {
         this->pipes.emplace_back(std::move(name), std::move(action), std::move(description));
         return *this;
@@ -51,16 +51,16 @@ namespace Pipes {
     void PipelineSync::logResult(const std::string &pipeName, const ResultAPI::Result<void>& result) const {
         switch (result.getStatus()) {
             case ResultAPI::Status::Ok:
-                logger->Info("Pipe successfully processed: " + pipeName);
+                Logging::Logger::Info("Pipe successfully processed: " + pipeName);
                 break;
             case ResultAPI::Status::Warning:
-                logger->Warning("Pipe processed with warning: " + pipeName + " - " + result.getMessage());
+                Logging::Logger::Warning("Pipe processed with warning: " + pipeName + " - " + result.getMessage());
                 break;
             case ResultAPI::Status::Error:
-                logger->Error("Error while processing pipe: " + pipeName + " - " + result.getMessage());
+                Logging::Logger::Error("Error while processing pipe: " + pipeName + " - " + result.getMessage());
                 break;
             case ResultAPI::Status::Fatal:
-                logger->Critical("Critical error while processing pipe: " + pipeName + " - " + result.getMessage());
+                Logging::Logger::Critical("Critical error while processing pipe: " + pipeName + " - " + result.getMessage());
                 break;
         }
     }

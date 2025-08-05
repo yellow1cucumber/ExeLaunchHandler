@@ -1,89 +1,67 @@
-#include "src/Adapter.h"
-
-#include <iostream>
-#include <QApplication>
+#include "app.h"
+#include "global_error_handler.h"
 
 #include "cxxopts.hpp"
-#include "Logger.h"
-#include "PipelineSync.h"
-#include "config/ConfigManager.h"
-#include "config/converting/JsonSerializer.h"
-#include "ui/main_window/mainwindow.h"
+#include "ui/splash_screen/SplashScreenWrapper.h"
+#include "ui/warnings/ErrorDisplay.h"
+
 
 int main(int argc, char *argv[]) {
-    cxxopts::Options options{
-        "ExeLaunchHandler",
-        "Application for managing and launching executables with logging and configuration support"
-    };
+    QApplication app(argc, argv);
 
-    options.add_options()
-        ("c,config", "Config file path", cxxopts::value<std::string>())
-        ("h,help", "Show help message")
-        ("u,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false")->implicit_value("true"));
+    ErrorHandler::installGlobalHandlers();
 
-
-    const auto result = options.parse(argc, argv);
-
-    if (result["help"].as<bool>()) {
-        std::cout << options.help();
+    if (App::shouldShowHelp(argc, argv)) {
+        App::printHelp();
         return 0;
     }
 
-    const auto configPath = result["config"].as<std::string>();
-    if (configPath.empty()) {
-        std::cerr << "Configuration path not found" << std::endl;
-        return 1;
+    const auto configPath = App::getConfigPath(argc, argv);
+    const bool uiMode = App::isUIModeEnabled(argc, argv);
+
+    std::unique_ptr<UI::SplashScreenWrapper> splashScreen;
+    if (!uiMode) {
+        splashScreen = std::make_unique<UI::SplashScreenWrapper>();
+        splashScreen->show();
+
+        std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 
-    Configuration::ConfigManager::init(std::make_unique<Configuration::Converting::JsonSerializer>(), configPath);
-    Configuration::ConfigManager &configManager{Configuration::ConfigManager::getInstance()};
-    configManager.loadFromFile(configPath);
+    bool pipelineOk = false;
+    std::optional<Configuration::AppConfig> appConfig;
 
-    Logging::Logger::init(configManager.getCached()->loggerConfig);
-    Logging::Logger::Info("Application loaded with configuration: " + configPath);
+    try {
+        appConfig = App::initApplication(configPath);
 
-    if (result["ui"].as<bool>()) {
-        Logging::Logger::Info("Loaded in UI mode");
-        QApplication a(argc, argv);
+        if (uiMode) {
+            return App::runUIMode();
+        }
 
-        UI::MainWindow mainWindow;
-        mainWindow.show();
-
-        return QApplication::exec();
+        pipelineOk = App::runPipeline(configPath);
+    } catch (const std::exception &e) {
+        UI::ErrorDisplay::showError("Ошибка при инициализации", e.what());
+    } catch (...) {
+        UI::ErrorDisplay::showError("Неизвестная ошибка", "Произошла неизвестная ошибка при запуске");
     }
 
-    Logging::Logger::Debug("Python bridge initialization start");
-    PyBridge::Adapter adapter;
-    adapter.Initialize(Logging::Logger::getInstance());
-    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
-    Logging::Logger::Debug("Python bridge initialization complete");
+    bool launchOk = false;
 
-    Pipes::PipelineSync pipelineSync{ false };
-    for (auto &pipe : adapter.GetRegisteredPipes()) {
-        Logging::Logger::Info("Registered pipe: " + pipe.GetName());
-
-        pipe.onStart = [&pipe]() {
-            Logging::Logger::Info("Pipe started: " + pipe.GetName());
-        };
-        pipe.onFinish = [&pipe]() {
-            Logging::Logger::Info("Pipe finished: " + pipe.GetName());
-        };
-
-        pipelineSync.AddStage(pipe);
+    try {
+        if (appConfig.has_value()) {
+            launchOk = App::launchProcess(*appConfig);
+        }
+    } catch (const std::exception &e) {
+        UI::ErrorDisplay::showError("Ошибка запуска процесса", e.what());
+    } catch (...) {
+        UI::ErrorDisplay::showError("Неизвестная ошибка", "Произошла ошибка при запуске процесса");
     }
 
-    const auto& executionResult = pipelineSync.Execute();
-
-    adapter.Finalize();
-    if (executionResult.isOk()) {
-        return 0;
+    if (!launchOk) {
+        UI::ErrorDisplay::showError("Не удалось запустить процесс",
+                                    "Запустите целевое приложение вручную, дайте сисадмину банку редбула и заставьте его починить это");
     }
-    return 1;
 
-    // TODO:
-    // add pipes execution logic;
-    // add tab for scripts listing;
-    // add more logging information;
-    // prettify main.cpp
-    // make python adapter singleton or make list of pipes static
+    if (splashScreen) splashScreen->hide();
+
+    return pipelineOk && launchOk ? 0 : 1;
 }

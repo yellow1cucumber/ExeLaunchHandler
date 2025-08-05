@@ -27,21 +27,21 @@ namespace Logging {
         return line;
     }
 
-    LineMessageBuilder &LineMessageBuilder::SetLogLevel(const Constants::WARN_LEVELS logLevel) noexcept {
+    LineMessageBuilder &LineMessageBuilder::SetLogLevel(const Constants::Warn::WARN_LEVELS logLevel) noexcept {
         switch (logLevel) {
-            case Constants::WARN_LEVELS::DEBUG:
+            case Constants::Warn::WARN_LEVELS::DEBUG:
                 this->logLevel = "DEBUG";
                 break;
-            case Constants::WARN_LEVELS::INFO:
+            case Constants::Warn::WARN_LEVELS::INFO:
                 this->logLevel = "INFO";
                 break;
-            case Constants::WARN_LEVELS::WARNING:
+            case Constants::Warn::WARN_LEVELS::WARNING:
                 this->logLevel = "WARNING";
                 break;
-            case Constants::WARN_LEVELS::ERROR:
+            case Constants::Warn::WARN_LEVELS::ERROR:
                 this->logLevel = "ERROR";
                 break;
-            case Constants::WARN_LEVELS::CRITICAL:
+            case Constants::Warn::WARN_LEVELS::CRITICAL:
                 this->logLevel = "CRITICAL";
                 break;
             default:
@@ -74,6 +74,7 @@ namespace Logging {
     std::string LineMessageBuilder::buildThreadId() const {
         const std::thread::id id{std::this_thread::get_id()};
         thread_local std::stringstream ss;
+        ss.str("");
         ss.clear();
         ss << id;
         return ss.str();

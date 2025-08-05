@@ -22,7 +22,7 @@ namespace Logging {
         [[nodiscard]]
         static Logger& getInstance();
 
-        void Log(const Constants::WARN_LEVELS &logLevel, const std::string_view& message);
+        void Log(const Constants::Warn::WARN_LEVELS &logLevel, const std::string_view& message);
 
         static void Debug(std::string_view message);
         static void Info(std::string_view message);
@@ -39,6 +39,8 @@ namespace Logging {
 
     private:
         explicit Logger(const Configuration::LoggerConfig& config);
+
+        bool isOutOfMemoryBudget() const noexcept;
 
         inline static std::unique_ptr<Logger> instance;
         inline static std::once_flag initOnce;

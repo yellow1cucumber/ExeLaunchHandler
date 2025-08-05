@@ -7,10 +7,11 @@
 
 #include <pybind11/pybind11.h>
 #include <vector>
+#include <filesystem>
 
-#include "../../../logging/Logger.h"
-#include "../../../results_api/Result.h"
-#include "../export.h"
+#include "Logger.h"
+#include "Result.h"
+#include "export.h"
 #include "definitions/python_pipe.h"
 
 namespace PyBridge::Details {
@@ -40,13 +41,15 @@ namespace PyBridge::Details {
         const std::vector<Definitions::PythonPipeDefinition> &getPipes() const noexcept;
 
     private:
-        PythonPipeRegistry();
+        PythonPipeRegistry() = default;
 
         std::vector<Definitions::PythonPipeDefinition> pipes;
-        Logging::Logger &logger;
 
         inline static std::unique_ptr<PythonPipeRegistry> instance;
         inline static std::once_flag initFlag;
+
+        bool isDirExists(const std::string& dirPath) const noexcept;
+		void createDir(const std::string& dirPath);
     };
 }
 

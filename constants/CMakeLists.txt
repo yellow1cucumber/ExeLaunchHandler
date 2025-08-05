@@ -3,9 +3,13 @@ project(ExeLaunchHandler.Constants)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCES WarnLevels.h
+set(SOURCES
         export.h
-        WarnLevels.cpp)
+        WarnLevels.h
+        WarnLevels.cpp
+        Priority.h
+        Priority.cpp
+)
 
 add_library(ExeLaunchHandler.Constants SHARED ${SOURCES})
 target_compile_definitions(ExeLaunchHandler.Constants PRIVATE EXELAUNCHHANDLER_CONSTANTS_EXPORTS)

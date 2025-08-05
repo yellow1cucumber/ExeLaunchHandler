@@ -22,8 +22,19 @@ add_subdirectory(python_bridge)
 add_subdirectory(config)
 add_subdirectory(constants)
 add_subdirectory(ui)
+add_subdirectory(launch)
 
-add_executable(ExeLaunchHandler main.cpp)
+SET(RESOURCES
+    resources/appicon.rc
+)
+
+SET(SOURCES
+        main.cpp
+        app.h
+        global_error_handler.h
+)
+
+add_executable(ExeLaunchHandler WIN32 ${SOURCES} ${RESOURCES})
 
 target_link_libraries(ExeLaunchHandler
     Qt5::Core
@@ -37,6 +48,7 @@ target_link_libraries(ExeLaunchHandler
     ExeLaunchHandler.Config
     ExeLaunchHandler.Constants
     ExeLaunchHandler.UI
+    ExeLaunchHandler.Launch
 )
 
 target_include_directories(ExeLaunchHandler
@@ -53,8 +65,33 @@ add_custom_command(TARGET ExeLaunchHandler POST_BUILD
         $<TARGET_FILE:ExeLaunchHandler.Config>
         $<TARGET_FILE:ExeLaunchHandler.Constants>
         $<TARGET_FILE:ExeLaunchHandler.UI>
+        $<TARGET_FILE:ExeLaunchHandler.Launch>
         $<TARGET_FILE_DIR:ExeLaunchHandler>
     COMMENT "Copying dependent DLLs to output directory"
+)
+
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:Qt5::Core>
+        $<TARGET_FILE:Qt5::Gui>
+        $<TARGET_FILE:Qt5::Widgets>
+        $<TARGET_FILE_DIR:ExeLaunchHandler>
+    COMMENT "Copying Qt libraries to output directory"
+)
+
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/config.json"
+        $<TARGET_FILE_DIR:ExeLaunchHandler>
+)
+
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory
+        "$<TARGET_FILE_DIR:ExeLaunchHandler>/resources"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/resources/splash.png"
+        "$<TARGET_FILE_DIR:ExeLaunchHandler>/resources/splash.png"
+        COMMENT "Copying splash.png to resources directory"
 )
 
 if(WINDEPLOYQT_EXECUTABLE)

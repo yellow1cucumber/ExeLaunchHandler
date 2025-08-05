@@ -10,7 +10,7 @@
 
 #include "export.h"
 
-namespace Constants {
+namespace Constants::Warn {
     enum class WARN_LEVELS {
         DEBUG = 0,
         INFO = 1,
@@ -22,7 +22,7 @@ namespace Constants {
 
     EXELAUNCHHANDLER_CONSTANTS_API std::string toString(const WARN_LEVELS warnLevel);
 
-    EXELAUNCHHANDLER_CONSTANTS_API WARN_LEVELS fromString(const std::string& level);
+    EXELAUNCHHANDLER_CONSTANTS_API WARN_LEVELS fromString(const std::string &level);
 }
 
 #endif //WARNLEVELS_H

@@ -5,10 +5,8 @@
 #ifndef STATUS_H
 #define STATUS_H
 
-#include "export.h"
-
 namespace ResultAPI {
-    enum class EXELAUNCHHANDLER_RESULTSAPI_API Status { Ok, Warning, Error, Fatal };
+    enum class Status { Ok, Warning, Error, Fatal };
 }
 
 

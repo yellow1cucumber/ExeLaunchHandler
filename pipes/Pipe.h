@@ -15,7 +15,7 @@ namespace Pipes {
     public:
         explicit Pipe(std::string name,
                       const std::function<ResultAPI::Result<void>()> &action,
-                      std::optional<std::string> description = std::nullopt);
+                      std::string description);
 
         Pipe(const Pipe &) = default;
 
@@ -29,14 +29,14 @@ namespace Pipes {
         const std::string &GetName() const noexcept;
 
         [[nodiscard]]
-        std::string_view GetDescription() const noexcept;
+        const std::string &GetDescription() const noexcept;
 
         [[nodiscard]]
         ResultAPI::Result<void> Run() override;
 
     private:
         std::string name;
-        std::optional<std::string> description;
+        std::string description;
         std::function<ResultAPI::Result<void>()> action;
     };
 } // Pipes

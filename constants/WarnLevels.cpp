@@ -1,7 +1,10 @@
-#include "warnlevels.h"
-#include <stdexcept>
+//
+// Created by User on 05.08.2025.
+//
 
-namespace Constants {
+#include "WarnLevels.h"
+
+namespace Constants::Warn {
     std::string toString(const WARN_LEVELS warnLevel) {
         switch (warnLevel) {
             case WARN_LEVELS::DEBUG: return "Debug";
@@ -14,7 +17,7 @@ namespace Constants {
         }
     }
 
-    WARN_LEVELS fromString(const std::string& level) {
+    WARN_LEVELS fromString(const std::string &level) {
         if (level == "Debug") return WARN_LEVELS::DEBUG;
         if (level == "Info") return WARN_LEVELS::INFO;
         if (level == "Warning") return WARN_LEVELS::WARNING;
