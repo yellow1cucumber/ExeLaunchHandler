@@ -4,15 +4,28 @@
 
 #include "Logger.h"
 
+#include <filesystem>
 #include <thread>
 
 namespace Logging {
     Logger::Logger(const Configuration::LoggerConfig &config) : config(config) {
         std::string logFilePath = this->config.logFile.value_or("log.txt");
+
+        if (this->config.logFileMaxSizeMB.has_value() && this->isOutOfMemoryBudget()) {
+            std::filesystem::remove(logFilePath);
+        }
+
         this->logFile = std::make_unique<std::ofstream>(logFilePath, std::ios::app);
         if (!this->logFile->is_open()) {
             throw std::runtime_error("Failed to open log file: " + logFilePath);
         }
+    }
+
+    bool Logger::isOutOfMemoryBudget() const noexcept {
+        if (!std::filesystem::exists(this->config.logFile.value())) {}
+        const std::uintmax_t sizeInBytes = std::filesystem::file_size(this->config.logFile.value());
+        const std::uintmax_t sizeInMB = sizeInBytes / (1024 * 1024);
+        return sizeInMB > this->config.logFileMaxSizeMB.value();
     }
 
     Logger &Logger::init(const Configuration::LoggerConfig &config) {

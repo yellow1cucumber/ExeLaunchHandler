@@ -40,6 +40,8 @@ namespace Logging {
     private:
         explicit Logger(const Configuration::LoggerConfig& config);
 
+        bool isOutOfMemoryBudget() const noexcept;
+
         inline static std::unique_ptr<Logger> instance;
         inline static std::once_flag initOnce;
 
