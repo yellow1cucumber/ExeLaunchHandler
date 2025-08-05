@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="7" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="19" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
@@ -33,7 +33,7 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug - x64" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
+      <configuration PROFILE_NAME="Debug - x64" ENABLED="true" GENERATION_DIR="out/debug-64" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/lib/cmake/Qt5" />
@@ -41,7 +41,7 @@
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="Release - x64" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
+      <configuration PROFILE_NAME="Release - x64" ENABLED="true" GENERATION_DIR="out/release-64" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/lib/cmake/Qt5" />
@@ -49,7 +49,7 @@
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="Debug - x32" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
+      <configuration PROFILE_NAME="Debug - x32" ENABLED="true" GENERATION_DIR="out/debug-32" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/lib/cmake/Qt5" />
@@ -57,7 +57,7 @@
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="Release - x32" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
+      <configuration PROFILE_NAME="Release - x32" ENABLED="true" GENERATION_DIR="out/release-32" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
             <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/lib/cmake/Qt5" />
@@ -68,10 +68,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="fix: update splash screen window flags and improve error handling in main function">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="refactor: update project configuration files and enhance CMake settings for better module management">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +85,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release - x64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -178,47 +175,47 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.ExeLaunchHandler">
-    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug - x64" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.Config" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Config" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.Config" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Config" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.Constants" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Constants" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.Constants" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Constants" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.Launch" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Launch" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.Launch" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Launch" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.Logging" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Logging" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.Logging" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Logging" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.Pipes" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Pipes" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.Pipes" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Pipes" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.PyPipeBridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.PyPipeBridge" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.PyPipeBridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.PyPipeBridge" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.ResultsAPI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.ResultsAPI" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.ResultsAPI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.ResultsAPI" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.UI" CONFIG_NAME="Debug">
+    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.UI" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -228,7 +225,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pipebridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="pipebridge" CONFIG_NAME="Debug">
+    <configuration name="pipebridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="pipebridge" CONFIG_NAME="Debug - x64">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -258,7 +255,7 @@
       <workItem from="1754340755564" duration="196000" />
       <workItem from="1754340965899" duration="16000" />
       <workItem from="1754340996811" duration="1612000" />
-      <workItem from="1754412379658" duration="12292000" />
+      <workItem from="1754412379658" duration="12475000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: tidy up CMakeLists.txt formatting and include new pipes_tab sources">
       <option name="closed" value="true" />
@@ -428,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754427474728</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor: update project configuration files and enhance CMake settings for better module management">
+      <option name="closed" value="true" />
+      <created>1754427991259</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1754427991259</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +466,7 @@
     <MESSAGE value="feat: add log file size management to Logger for memory budget enforcement" />
     <MESSAGE value="refactor: rename app.cpp to app.h and global_error_handler.cpp to global_error_handler.h; update function definitions to inline" />
     <MESSAGE value="fix: update splash screen window flags and improve error handling in main function" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: update splash screen window flags and improve error handling in main function" />
+    <MESSAGE value="refactor: update project configuration files and enhance CMake settings for better module management" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update project configuration files and enhance CMake settings for better module management" />
   </component>
 </project>
