@@ -10,9 +10,14 @@
 #include "config/ConfigManager.h"
 #include "config/converting/JsonSerializer.h"
 #include "ui/main_window/mainwindow.h"
+#include "ui/splash_screen/SplashScreenWrapper.h"
 #include "ui/warnings/ErrorDisplay.h"
 
 int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+
+    std::unique_ptr<UI::SplashScreenWrapper> splashScreenManager;
+
     cxxopts::Options options{
         "ExeLaunchHandler",
         "Application for managing and launching executables with logging and configuration support"
@@ -22,7 +27,6 @@ int main(int argc, char *argv[]) {
             ("c,config", "Config file path", cxxopts::value<std::string>())
             ("h,help", "Show help message")
             ("u,ui", "Enable UI mode", cxxopts::value<bool>()->default_value("false")->implicit_value("true"));
-
 
     const auto result = options.parse(argc, argv);
 
@@ -37,6 +41,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    if (const auto uiMode = result["ui"].as<bool>(); !uiMode) {
+        splashScreenManager = std::make_unique<UI::SplashScreenWrapper>();
+        splashScreenManager->show();
+    }
+
     Configuration::ConfigManager::init(std::make_unique<Configuration::Converting::JsonSerializer>(), configPath);
     Configuration::ConfigManager &configManager{Configuration::ConfigManager::getInstance()};
     configManager.loadFromFile(configPath);
@@ -47,7 +56,6 @@ int main(int argc, char *argv[]) {
 
     if (result["ui"].as<bool>()) {
         Logging::Logger::Info("Loaded in UI mode");
-        QApplication a(argc, argv);
 
         UI::MainWindow mainWindow;
         mainWindow.show();
@@ -84,10 +92,20 @@ int main(int argc, char *argv[]) {
 
     constexpr Launch::ProcessLauncher launcher;
     const Configuration::AppConfig &exeConfig{configManager.getCached().value_or(Configuration::AppConfig())};
+
+    // delay region;
+    if (splashScreenManager) {
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+    }
+
     const auto launchStatus{launcher.launchDetached(exeConfig.exeRunnerConfig)};
     launchStatus
         ? Logging::Logger::Info("Process launched successfully")
         : Logging::Logger::Error("Failed to launch process");
+
+    if (splashScreenManager) {
+        splashScreenManager->hide();
+    }
 
     if (!launchStatus) {
         UI::ErrorDisplay::showError("Не удалось запустить процесс",

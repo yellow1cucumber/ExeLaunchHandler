@@ -24,7 +24,7 @@ add_subdirectory(constants)
 add_subdirectory(ui)
 add_subdirectory(launch)
 
-add_executable(ExeLaunchHandler main.cpp)
+add_executable(ExeLaunchHandler WIN32 main.cpp)
 
 target_link_libraries(ExeLaunchHandler
     Qt5::Core
