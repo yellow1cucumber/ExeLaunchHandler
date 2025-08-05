@@ -24,6 +24,8 @@ set(SOURCES
         config_managment_widget/configtab.ui
         warnings/ErrorDisplay.cpp
         warnings/ErrorDisplay.h
+        splash_screen/SplashScreenWrapper.cpp
+        splash_screen/SplashScreenWrapper.h
 )
 
 add_library(ExeLaunchHandler.UI SHARED ${SOURCES})
