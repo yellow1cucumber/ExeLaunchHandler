@@ -70,6 +70,30 @@ add_custom_command(TARGET ExeLaunchHandler POST_BUILD
     COMMENT "Copying dependent DLLs to output directory"
 )
 
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:Qt5::Core>
+        $<TARGET_FILE:Qt5::Gui>
+        $<TARGET_FILE:Qt5::Widgets>
+        $<TARGET_FILE_DIR:ExeLaunchHandler>
+    COMMENT "Copying Qt libraries to output directory"
+)
+
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/config.json"
+        $<TARGET_FILE_DIR:ExeLaunchHandler>
+)
+
+add_custom_command(TARGET ExeLaunchHandler POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory
+        "$<TARGET_FILE_DIR:ExeLaunchHandler>/resources"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/resources/splash.png"
+        "$<TARGET_FILE_DIR:ExeLaunchHandler>/resources/splash.png"
+        COMMENT "Copying splash.png to resources directory"
+)
+
 if(WINDEPLOYQT_EXECUTABLE)
     add_custom_command(TARGET ExeLaunchHandler POST_BUILD
         COMMAND "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:ExeLaunchHandler>"

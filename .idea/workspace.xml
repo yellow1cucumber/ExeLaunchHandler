@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="19" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="23" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
@@ -68,8 +68,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="refactor: update project configuration files and enhance CMake settings for better module management">
+    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="refactor: update workspace configuration for improved CMake settings and project structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +256,7 @@
       <workItem from="1754340755564" duration="196000" />
       <workItem from="1754340965899" duration="16000" />
       <workItem from="1754340996811" duration="1612000" />
-      <workItem from="1754412379658" duration="12475000" />
+      <workItem from="1754412379658" duration="12856000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: tidy up CMakeLists.txt formatting and include new pipes_tab sources">
       <option name="closed" value="true" />
@@ -433,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754427991259</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="refactor: update workspace configuration for improved CMake settings and project structure">
+      <option name="closed" value="true" />
+      <created>1754428268421</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1754428268421</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,6 +476,7 @@
     <MESSAGE value="refactor: rename app.cpp to app.h and global_error_handler.cpp to global_error_handler.h; update function definitions to inline" />
     <MESSAGE value="fix: update splash screen window flags and improve error handling in main function" />
     <MESSAGE value="refactor: update project configuration files and enhance CMake settings for better module management" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update project configuration files and enhance CMake settings for better module management" />
+    <MESSAGE value="refactor: update workspace configuration for improved CMake settings and project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update workspace configuration for improved CMake settings and project structure" />
   </component>
 </project>
