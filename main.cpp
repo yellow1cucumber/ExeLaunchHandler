@@ -1,9 +1,10 @@
+#include "app.h"
+#include "global_error_handler.h"
+
 #include "cxxopts.hpp"
 #include "ui/splash_screen/SplashScreenWrapper.h"
 #include "ui/warnings/ErrorDisplay.h"
 
-#include "app.cpp"
-#include "global_error_handler.cpp"
 
 int main(int argc, char* argv[]) {
     QApplication app(argc, argv);

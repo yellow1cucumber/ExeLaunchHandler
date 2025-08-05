@@ -30,8 +30,8 @@ SET(RESOURCES
 
 SET(SOURCES
         main.cpp
-        app.cpp
-        global_error_handler.cpp
+        app.h
+        global_error_handler.h
 )
 
 add_executable(ExeLaunchHandler WIN32 ${SOURCES} ${RESOURCES})

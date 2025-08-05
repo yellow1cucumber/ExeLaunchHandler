@@ -4,12 +4,11 @@
 #include <csignal>
 #include <exception>
 #include <iostream>
-#include <QString>
 #include "Logger.h"
 #include "ui/warnings/ErrorDisplay.h"
 
 namespace ErrorHandler {
-    void showFatalError(const std::string &message) {
+    inline void showFatalError(const std::string &message) {
         if (Logging::Logger::isInitialized()) {
             Logging::Logger::Error("Fatal error: " + message);
         } else {
@@ -20,7 +19,7 @@ namespace ErrorHandler {
         std::exit(1);
     }
 
-    void terminateHandler() {
+    inline void terminateHandler() {
         if (const auto ex = std::current_exception()) {
             try {
                 std::rethrow_exception(ex);
@@ -34,7 +33,7 @@ namespace ErrorHandler {
         }
     }
 
-    void signalHandler(const int signal) {
+    inline void signalHandler(const int signal) {
         std::string msg;
         switch (signal) {
             case SIGSEGV: msg = "Segmentation fault (SIGSEGV)";
@@ -52,7 +51,7 @@ namespace ErrorHandler {
         showFatalError(msg);
     }
 
-    void installGlobalHandlers() {
+    inline void installGlobalHandlers() {
         std::set_terminate(terminateHandler);
 
         std::signal(SIGSEGV, signalHandler);
