@@ -74,7 +74,7 @@ namespace UI {
             "Select the priority level for the executable process. Higher levels will give more CPU time to the process.");
         this->ui->processPriorityComboBox->setCurrentIndex(
             this->exeLaunchPriorityLevels.indexOf(
-                QString::fromStdWString(Constants::Processes::toString(
+                QString::fromStdWString(Constants::Processes::toWString(
                     config.exeRunnerConfig.processPriority.value_or(Constants::Processes::PRIORITY::Normal))))
         );
     }

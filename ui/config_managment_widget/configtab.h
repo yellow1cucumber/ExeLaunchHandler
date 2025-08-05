@@ -60,12 +60,12 @@ namespace UI {
         };
 
         const QStringList exeLaunchPriorityLevels = {
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Idle)),
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::BelowNormal)),
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Normal)),
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::AboveNormal)),
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::High)),
-            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Realtime))
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::Idle)),
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::BelowNormal)),
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::Normal)),
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::AboveNormal)),
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::High)),
+            QString::fromStdWString(Constants::Processes::toWString(Constants::Processes::PRIORITY::Realtime))
         };
     };
 }; // UI
