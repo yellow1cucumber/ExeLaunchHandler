@@ -22,6 +22,7 @@ add_subdirectory(python_bridge)
 add_subdirectory(config)
 add_subdirectory(constants)
 add_subdirectory(ui)
+add_subdirectory(launch)
 
 add_executable(ExeLaunchHandler main.cpp)
 
@@ -37,6 +38,7 @@ target_link_libraries(ExeLaunchHandler
     ExeLaunchHandler.Config
     ExeLaunchHandler.Constants
     ExeLaunchHandler.UI
+    ExeLaunchHandler.Launch
 )
 
 target_include_directories(ExeLaunchHandler
@@ -53,6 +55,7 @@ add_custom_command(TARGET ExeLaunchHandler POST_BUILD
         $<TARGET_FILE:ExeLaunchHandler.Config>
         $<TARGET_FILE:ExeLaunchHandler.Constants>
         $<TARGET_FILE:ExeLaunchHandler.UI>
+        $<TARGET_FILE:ExeLaunchHandler.Launch>
         $<TARGET_FILE_DIR:ExeLaunchHandler>
     COMMENT "Copying dependent DLLs to output directory"
 )

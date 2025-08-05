@@ -43,12 +43,6 @@ int main(int argc, char *argv[]) {
     Logging::Logger::Info("Application loaded with configuration: " + configPath);
     auto &logger{Logging::Logger::getInstance()};
 
-    Logging::Logger::Debug("Python bridge initialization start");
-    PyBridge::Adapter adapter;
-    adapter.Initialize(argv[0]);
-    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
-    Logging::Logger::Debug("Python bridge initialization complete");
-
     if (result["ui"].as<bool>()) {
         Logging::Logger::Info("Loaded in UI mode");
         QApplication a(argc, argv);
@@ -58,6 +52,12 @@ int main(int argc, char *argv[]) {
 
         return QApplication::exec();
     }
+
+    Logging::Logger::Debug("Python bridge initialization start");
+    PyBridge::Adapter adapter;
+    adapter.Initialize(argv[0]);
+    adapter.LoadScriptsFromDir(configManager.getCached()->pipesConfig.scriptsDir);
+    Logging::Logger::Debug("Python bridge initialization complete");
 
     Pipes::PipelineSync pipelineSync{false};
     for (auto &pipe: adapter.GetRegisteredPipes()) {
