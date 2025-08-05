@@ -31,7 +31,6 @@ namespace App {
         return options;
     }
 
-
     inline bool shouldShowHelp(const int argc, char *argv[]) {
         auto options = createOptions();
         const auto result = options.parse(argc, argv);

@@ -16,7 +16,6 @@ namespace ErrorHandler {
         }
 
         UI::ErrorDisplay::showError("Фатальная ошибка", message);
-        std::exit(1);
     }
 
     inline void terminateHandler() {

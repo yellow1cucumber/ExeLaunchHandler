@@ -6,7 +6,7 @@
 #include "ui/warnings/ErrorDisplay.h"
 
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     ErrorHandler::installGlobalHandlers();
@@ -23,16 +23,38 @@ int main(int argc, char* argv[]) {
     if (!uiMode) {
         splashScreen = std::make_unique<UI::SplashScreenWrapper>();
         splashScreen->show();
+
+        std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 
-    const auto appConfig = App::initApplication(configPath);
+    bool pipelineOk = false;
+    std::optional<Configuration::AppConfig> appConfig;
 
-    if (uiMode) {
-        return App::runUIMode();
+    try {
+        appConfig = App::initApplication(configPath);
+
+        if (uiMode) {
+            return App::runUIMode();
+        }
+
+        pipelineOk = App::runPipeline(configPath);
+    } catch (const std::exception &e) {
+        UI::ErrorDisplay::showError("Ошибка при инициализации", e.what());
+    } catch (...) {
+        UI::ErrorDisplay::showError("Неизвестная ошибка", "Произошла неизвестная ошибка при запуске");
     }
 
-    const bool pipelineOk = App::runPipeline(configPath);
-    const bool launchOk = App::launchProcess(appConfig);
+    bool launchOk = false;
+
+    try {
+        if (appConfig.has_value()) {
+            launchOk = App::launchProcess(*appConfig);
+        }
+    } catch (const std::exception &e) {
+        UI::ErrorDisplay::showError("Ошибка запуска процесса", e.what());
+    } catch (...) {
+        UI::ErrorDisplay::showError("Неизвестная ошибка", "Произошла ошибка при запуске процесса");
+    }
 
     if (!launchOk) {
         UI::ErrorDisplay::showError("Не удалось запустить процесс",
@@ -40,5 +62,6 @@ int main(int argc, char* argv[]) {
     }
 
     if (splashScreen) splashScreen->hide();
+
     return pipelineOk && launchOk ? 0 : 1;
 }

@@ -30,7 +30,7 @@ namespace UI {
         }
 
         splash = std::make_unique<QSplashScreen>(pixmap);
-        splash->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+        splash->setWindowFlags(Qt::SplashScreen | Qt::WindowDoesNotAcceptFocus);
     }
 
     void SplashScreenWrapper::show() {
