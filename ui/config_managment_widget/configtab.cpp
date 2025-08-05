@@ -38,7 +38,7 @@ namespace UI {
         this->ui->warningLevelComboBox->setToolTip(
             "Select the log level for the application. Higher levels will include lower levels.");
         this->ui->warningLevelComboBox->setCurrentIndex(
-            this->warningLevels.indexOf(QString::fromStdString(Constants::toString(config.loggerConfig.logLevel)))
+            this->warningLevels.indexOf(QString::fromStdString(Constants::Warn::toString(config.loggerConfig.logLevel)))
         );
 
         this->ui->logFilePathLineEdit->setText(QString::fromStdString(config.loggerConfig.logFile.value()));
@@ -67,6 +67,16 @@ namespace UI {
         this->ui->exeRunArgsTextEdit->setText(QString::fromStdString(config.exeRunnerConfig.exeArgs.value_or("")));
         this->ui->exeRunArgsTextEdit->setToolTip(
             "Specify the arguments that will be passed to the executable file when it is run.");
+
+        this->ui->processPriorityComboBox->clear();
+        this->ui->processPriorityComboBox->addItems(this->exeLaunchPriorityLevels);
+        this->ui->processPriorityComboBox->setToolTip(
+            "Select the priority level for the executable process. Higher levels will give more CPU time to the process.");
+        this->ui->processPriorityComboBox->setCurrentIndex(
+            this->exeLaunchPriorityLevels.indexOf(
+                QString::fromStdWString(Constants::Processes::toString(
+                    config.exeRunnerConfig.processPriority.value_or(Constants::Processes::PRIORITY::Normal))))
+        );
     }
 
     void ConfigTab::bindControlButtons() {
@@ -140,7 +150,7 @@ namespace UI {
 
     void ConfigTab::applyConfig() const {
         Configuration::AppConfig config;
-        config.loggerConfig.logLevel = Constants::fromString(
+        config.loggerConfig.logLevel = Constants::Warn::fromString(
             this->ui->warningLevelComboBox->currentText().toStdString());
         config.loggerConfig.logFile = this->ui->logFilePathLineEdit->text().toStdString();
         config.loggerConfig.logFileMaxSizeMB = this->ui->logFileMaxSize->value();
@@ -150,6 +160,9 @@ namespace UI {
 
         config.exeRunnerConfig.exePath = this->ui->exePathLineEdit->text().toStdString();
         config.exeRunnerConfig.exeArgs = this->ui->exeRunArgsTextEdit->toPlainText().toStdString();
+        config.exeRunnerConfig.processPriority = Constants::Processes::fromString(
+            this->ui->processPriorityComboBox->currentText().toStdWString()
+        );
 
         const auto &configManager{&Configuration::ConfigManager::getInstance()};
         configManager->save(std::nullopt, config);

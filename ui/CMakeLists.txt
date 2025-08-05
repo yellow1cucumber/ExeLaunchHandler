@@ -22,9 +22,6 @@ set(SOURCES
         config_managment_widget/configtab.cpp
         config_managment_widget/configtab.h
         config_managment_widget/configtab.ui
-        pipes_tab/pipestab.cpp
-        pipes_tab/pipestab.h
-        pipes_tab/pipestab.ui
 )
 
 add_library(ExeLaunchHandler.UI SHARED ${SOURCES})

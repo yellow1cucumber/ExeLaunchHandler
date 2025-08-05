@@ -12,6 +12,8 @@
 #include "converting/JsonSerializer.h"
 #include <qfiledialog.h>
 
+#undef ERROR
+
 namespace UI {
     QT_BEGIN_NAMESPACE
 
@@ -49,12 +51,21 @@ namespace UI {
         void bindFileDialogButtons();
 
         const QStringList warningLevels = {
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::DEBUG)),
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::INFO)),
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::WARNING)),
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::ERROR)),
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::CRITICAL)),
-            QString::fromStdString(Constants::toString(Constants::WARN_LEVELS::FATAL))
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::DEBUG)),
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::INFO)),
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::WARNING)),
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::ERROR)),
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::CRITICAL)),
+            QString::fromStdString(Constants::Warn::toString(Constants::Warn::WARN_LEVELS::FATAL))
+        };
+
+        const QStringList exeLaunchPriorityLevels = {
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Idle)),
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::BelowNormal)),
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Normal)),
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::AboveNormal)),
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::High)),
+            QString::fromStdWString(Constants::Processes::toString(Constants::Processes::PRIORITY::Realtime))
         };
     };
 }; // UI
