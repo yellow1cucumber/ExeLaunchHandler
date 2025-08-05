@@ -6,9 +6,11 @@
 #include "cxxopts.hpp"
 #include "Logger.h"
 #include "PipelineSync.h"
+#include "ProcessLauncher.h"
 #include "config/ConfigManager.h"
 #include "config/converting/JsonSerializer.h"
 #include "ui/main_window/mainwindow.h"
+#include "ui/warnings/ErrorDisplay.h"
 
 int main(int argc, char *argv[]) {
     cxxopts::Options options{
@@ -73,16 +75,22 @@ int main(int argc, char *argv[]) {
         pipelineSync.AddStage(pipe);
     }
 
-    const auto &executionResult = pipelineSync.Execute();
+    const auto &executionResult{pipelineSync.Execute()};
 
     adapter.Finalize();
-    if (executionResult.isOk()) {
-        return 0;
-    }
-    return 1;
+    executionResult.isOk()
+        ? Logging::Logger::Info("Pipeline executed successfully")
+        : Logging::Logger::Error("Pipeline execution failed: " + executionResult.getMessage());
 
-    // TODO:
-    // add tab for scripts listing;
-    // add more logging information;
-    // prettify main.cpp
+    constexpr Launch::ProcessLauncher launcher;
+    const Configuration::AppConfig &exeConfig{configManager.getCached().value_or(Configuration::AppConfig())};
+    const auto launchStatus{launcher.launchDetached(exeConfig.exeRunnerConfig)};
+    launchStatus
+        ? Logging::Logger::Info("Process launched successfully")
+        : Logging::Logger::Error("Failed to launch process");
+
+    if (!launchStatus) {
+        UI::ErrorDisplay::showError("Не удалось запустить процесс",
+                                    "Запустите приложение вручную, дайте сисадмину банку редбула и заставьте его починить это");
+    }
 }
