@@ -19,7 +19,7 @@ namespace Constants::Processes {
         }
     }
 
-    std::wstring toString(const PRIORITY priority) {
+    std::wstring toWString(const PRIORITY priority) {
         switch (priority) {
             case PRIORITY::Idle: return L"IDLE_PRIORITY_CLASS";
             case PRIORITY::BelowNormal: return L"BELOW_NORMAL_PRIORITY_CLASS";
@@ -28,6 +28,18 @@ namespace Constants::Processes {
             case PRIORITY::High: return L"HIGH_PRIORITY_CLASS";
             case PRIORITY::Realtime: return L"REALTIME_PRIORITY_CLASS";
             default: return L"NORMAL_PRIORITY_CLASS";
+        }
+    }
+
+    std::string toString(const PRIORITY priority) {
+        switch (priority) {
+            case PRIORITY::Idle: return "IDLE_PRIORITY_CLASS";
+            case PRIORITY::BelowNormal: return "BELOW_NORMAL_PRIORITY_CLASS";
+            case PRIORITY::Normal: return "NORMAL_PRIORITY_CLASS";
+            case PRIORITY::AboveNormal: return "ABOVE_NORMAL_PRIORITY_CLASS";
+            case PRIORITY::High: return "HIGH_PRIORITY_CLASS";
+            case PRIORITY::Realtime: return "REALTIME_PRIORITY_CLASS";
+            default: return "NORMAL_PRIORITY_CLASS";
         }
     }
 

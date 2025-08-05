@@ -21,7 +21,9 @@ namespace Constants::Processes {
 
     EXELAUNCHHANDLER_CONSTANTS_API DWORD toWindowsPRIORITY(const PRIORITY priority);
 
-    EXELAUNCHHANDLER_CONSTANTS_API std::wstring toString(const PRIORITY priority);
+    EXELAUNCHHANDLER_CONSTANTS_API std::wstring toWString(const PRIORITY priority);
+
+    EXELAUNCHHANDLER_CONSTANTS_API std::string toString(const PRIORITY priority);
 
     EXELAUNCHHANDLER_CONSTANTS_API PRIORITY fromString(const std::wstring &priorityStr);
 

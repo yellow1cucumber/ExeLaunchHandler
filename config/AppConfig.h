@@ -33,7 +33,7 @@ namespace Configuration {
     public:
         LoggerConfig loggerConfig;
         PipesConfig pipesConfig;
-        ExeRunnerConfig exeRunnerConfig;
+        Configuration::ExeRunnerConfig exeRunnerConfig;
     };
 }
 

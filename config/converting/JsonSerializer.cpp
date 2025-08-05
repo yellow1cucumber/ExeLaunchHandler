@@ -118,7 +118,7 @@ namespace Configuration::Converting {
             exeRunnerJson["exeArgs"] = config.exeArgs.value();
         }
         if (config.processPriority.has_value()) {
-            exeRunnerJson["processPriority"] = config.processPriority.value();
+            exeRunnerJson["processPriority"] = Constants::Processes::toString(config.processPriority.value());
         }
         exeRunnerJson["cancelOnFatalError"] = config.cancelOnFatalError;
         return exeRunnerJson;
