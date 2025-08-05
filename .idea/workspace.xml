@@ -72,11 +72,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="refactor: enhance CMake configuration by adding Python3 support and improving library linking">
-      <change afterPath="$PROJECT_DIR$/installer_script.iss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="refactor: update CMake configurations to include Python3 support and adjust environment variables for 32-bit and 64-bit builds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/third_party/json/json.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/third_party/json/json.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +260,7 @@
       <workItem from="1754340755564" duration="196000" />
       <workItem from="1754340965899" duration="16000" />
       <workItem from="1754340996811" duration="1612000" />
-      <workItem from="1754412379658" duration="17046000" />
+      <workItem from="1754412379658" duration="17961000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: tidy up CMakeLists.txt formatting and include new pipes_tab sources">
       <option name="closed" value="true" />
@@ -472,7 +470,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754430954759</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: add installer script for ExeLaunchHandler with configuration for 32-bit and 64-bit builds">
+      <option name="closed" value="true" />
+      <created>1754432842193</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1754432842193</updated>
+    </task>
+    <task id="LOCAL-00028" summary="refactor: update CMake configurations to include Python3 support and adjust environment variables for 32-bit and 64-bit builds">
+      <option name="closed" value="true" />
+      <created>1754432846407</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1754432846407</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,9 +498,6 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: improve formatting and logging in main.cpp" />
-    <MESSAGE value="feat: add PipesTab and update MainWindow to include new settings and pipes tabs" />
-    <MESSAGE value="feat: add Priority handling and update WarnLevels namespace" />
     <MESSAGE value="feat: add process priority handling to LoggerConfig and ExeRunnerConfig" />
     <MESSAGE value="refactor: update log level handling to use new namespace structure" />
     <MESSAGE value="refactor: change GetDescription return type from std::string_view to const std::string&amp;" />
@@ -509,6 +520,9 @@
     <MESSAGE value="refactor: update workspace configuration and enhance CMake settings for improved build process" />
     <MESSAGE value="fix: improve memory budget check in Logger class by validating log file and size configurations" />
     <MESSAGE value="refactor: enhance CMake configuration by adding Python3 support and improving library linking" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: enhance CMake configuration by adding Python3 support and improving library linking" />
+    <MESSAGE value="{&#13;&#10;    &quot;error&quot;: {&#13;&#10;        &quot;message&quot;: &quot;You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.&quot;,&#13;&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#13;&#10;        &quot;param&quot;: null,&#13;&#10;        &quot;code&quot;: null&#13;&#10;    }&#13;&#10;}" />
+    <MESSAGE value="feat: add installer script for ExeLaunchHandler with configuration for 32-bit and 64-bit builds" />
+    <MESSAGE value="refactor: update CMake configurations to include Python3 support and adjust environment variables for 32-bit and 64-bit builds" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update CMake configurations to include Python3 support and adjust environment variables for 32-bit and 64-bit builds" />
   </component>
 </project>
