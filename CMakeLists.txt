@@ -28,9 +28,13 @@ SET(RESOURCES
     resources/appicon.rc
 )
 
-add_executable(ExeLaunchHandler WIN32 main.cpp
-    ${RESOURCES}
+SET(SOURCES
+        main.cpp
+        app.cpp
+        global_error_handler.cpp
 )
+
+add_executable(ExeLaunchHandler WIN32 ${SOURCES} ${RESOURCES})
 
 target_link_libraries(ExeLaunchHandler
     Qt5::Core
