@@ -16,7 +16,7 @@ namespace Pipes {
         return this->name;
     }
 
-    std::string_view Pipe::GetDescription() const noexcept {
+    const std::string &Pipe::GetDescription() const noexcept {
         return this->description.empty() ? "No description provided" : this->description;
     }
 

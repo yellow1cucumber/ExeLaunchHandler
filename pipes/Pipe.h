@@ -29,7 +29,7 @@ namespace Pipes {
         const std::string &GetName() const noexcept;
 
         [[nodiscard]]
-        std::string_view GetDescription() const noexcept;
+        const std::string &GetDescription() const noexcept;
 
         [[nodiscard]]
         ResultAPI::Result<void> Run() override;
