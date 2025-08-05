@@ -24,7 +24,13 @@ add_subdirectory(constants)
 add_subdirectory(ui)
 add_subdirectory(launch)
 
-add_executable(ExeLaunchHandler WIN32 main.cpp)
+SET(RESOURCES
+    resources/appicon.rc
+)
+
+add_executable(ExeLaunchHandler WIN32 main.cpp
+    ${RESOURCES}
+)
 
 target_link_libraries(ExeLaunchHandler
     Qt5::Core
