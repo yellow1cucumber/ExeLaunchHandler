@@ -6,6 +6,8 @@
 
 #include <fstream>
 
+#include "Priority.h"
+
 namespace Configuration::Converting {
     const Configuration::AppConfig JsonSerializer::fromFile(const std::string &filePath) {
         std::ifstream configFile(filePath);
@@ -47,7 +49,7 @@ namespace Configuration::Converting {
 
     void JsonSerializer::fromJson(const nlohmann::json &json, LoggerConfig &config) {
         const auto logLevelRaw{json.at("logLevel").get<std::string>()};
-        config.logLevel = Constants::fromString(logLevelRaw);
+        config.logLevel = Constants::Warn::fromString(logLevelRaw);
 
         if (!json.contains("logFile")) {
             config.logFile = "logs/log.txt";
@@ -80,6 +82,11 @@ namespace Configuration::Converting {
             json.at("exeArgs").get_to(config.exeArgs);
         }
 
+        if (json.contains("processPriority")) {
+            const auto priorityStr = json.at("processPriority").get<std::string>();
+            config.processPriority = Constants::Processes::fromString(priorityStr);
+        }
+
         if (json.contains("cancelOnFatalError")) {
             json.at("cancelOnFatalError").get_to(config.cancelOnFatalError);
         }
@@ -87,7 +94,7 @@ namespace Configuration::Converting {
 
     nlohmann::json JsonSerializer::toJson(const LoggerConfig &config) {
         nlohmann::json logJson;
-        logJson["logLevel"] = Constants::toString(config.logLevel);
+        logJson["logLevel"] = Constants::Warn::toString(config.logLevel);
         if (config.logFile.has_value()) {
             logJson["logFile"] = config.logFile.value();
         };
@@ -110,6 +117,10 @@ namespace Configuration::Converting {
         if (config.exeArgs.has_value()) {
             exeRunnerJson["exeArgs"] = config.exeArgs.value();
         }
+        if (config.processPriority.has_value()) {
+            exeRunnerJson["processPriority"] = config.processPriority.value();
+        }
+        exeRunnerJson["cancelOnFatalError"] = config.cancelOnFatalError;
         return exeRunnerJson;
     }
 }
