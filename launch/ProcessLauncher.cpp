@@ -7,7 +7,7 @@
 #include <sstream>
 
 namespace Launch {
-    bool ProcessLauncher::launchDetached(Configuration::ExeRunnerConfig &config) {
+    bool ProcessLauncher::launchDetached(const Configuration::ExeRunnerConfig &config) const {
         const std::wstring exePath{config.exePath.begin(), config.exePath.end()};
         std::wstring args;
 
@@ -42,4 +42,5 @@ namespace Launch {
 
         return result == TRUE;
     }
+
 } // Launch
