@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="7" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -20,61 +21,77 @@
     <generated>
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Config" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Constants" />
-      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.UI" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.PyPipeBridge" />
-      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Pipes" />
+      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.UI" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler" />
+      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Pipes" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.ResultsAPI" />
+      <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Launch" />
       <config projectName="ExeLaunchHandler" targetName="ExeLaunchHandler.Logging" />
       <config projectName="ExeLaunchHandler" targetName="pipebridge" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug-MSVC" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Visual Studio" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot; -DCMAKE_PREFIX_PATH=&quot;C:/Qt/5.12.12/msvc2017_64&quot;">
+      <configuration PROFILE_NAME="Debug - x64" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
-            <env name="RC" value="C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" />
+            <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/lib/cmake/Qt5" />
+            <env name="WINDEPLOYQT_EXECUTABLE " value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/bin/windeployqt.exe" />
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
-      <configuration PROFILE_NAME="Debug-System" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="System" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot; -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=&quot;C:/Qt/5.12.12/msvc2017_64&quot;">
+      <configuration PROFILE_NAME="Release - x64" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017_64/bin/windeployqt.exe&quot;">
         <ADDITIONAL_GENERATION_ENVIRONMENT>
           <envs>
-            <env name="RC" value="C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\rc.exe" />
+            <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/lib/cmake/Qt5" />
+            <env name="WINDEPLOYQT_EXECUTABLE " value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017_64/bin/windeployqt.exe" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="Debug - x32" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/lib/cmake/Qt5" />
+            <env name="WINDEPLOYQT_EXECUTABLE" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/bin/windeployqt.exe" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+      <configuration PROFILE_NAME="Release - x32" ENABLED="true" CONFIG_NAME="Release" GENERATION_OPTIONS="-DWINDEPLOYQT_EXECUTABLE=&quot;C:/Qt/5.12.12/msvc2017/bin/windeployqt.exe&quot;">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="Qt5_DIR" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/lib/cmake/Qt5" />
+            <env name="WINDEPLOYQT_EXECUTABLE" value="$PROJECT_DIR$/../../../../../../Qt/5.12.12/msvc2017/bin/windeployqt.exe" />
           </envs>
         </ADDITIONAL_GENERATION_ENVIRONMENT>
       </configuration>
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="Refactor Adapter module and CMake configuration to improve module structure and path references">
+    <list default="true" id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="fix: update splash screen window flags and improve error handling in main function">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/WarnLevels.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/constants/WarnLevels.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/Adapter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/Adapter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/Adapter.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/Adapter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_bridge/PythonPipeRegistry.h" beforeDir="false" afterPath="$PROJECT_DIR$/python_bridge/PythonPipeRegistry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results_api/Status.h" beforeDir="false" afterPath="$PROJECT_DIR$/results_api/Status.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-System" />
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="CMakeLists.txt" />
-      </list>
-    </option>
-  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -101,122 +118,20 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/AppConfig.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/constants/Priority.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/constants/WarnLevels.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/logging/Logger.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/main.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/python_bridge/Adapter.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/python_bridge/Adapter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/logging/Logger.h" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectApplicationVersion">
-    <option name="ide" value="CLion" />
-    <option name="majorVersion" value="2025" />
-    <option name="minorVersion" value="1.4" />
-    <option name="productBranch" value="Classic" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="30jlIfQUX6Ura8o7UVlnSkcyxtW" />
+  <component name="ProjectId" id="30ppfGB3ZoayyPyU0qy8xNTNfZZ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -224,130 +139,296 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;CMake Application.ExeLaunchHandler.UI.executor&quot;: &quot;Debug&quot;,
-    &quot;CMake Application.ExeLaunchHandler.executor&quot;: &quot;Debug&quot;,
-    &quot;CMake Debug.ExeLaunchHandler.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;debug-msvc&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/source/repos/open-source/ExeLaunchHandler/cmake-build-debug-msvc&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.ExeLaunchHandler.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "debug-msvc",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/User/source/repos/open-source/ExeLaunchHandler/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug-msvc" />
-      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug-system" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\resources" />
       <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug" />
-      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\cmake-build-debug-visual-studio" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\launch" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\python_bridge" />
-      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\python_bridge\src\internal\definitions" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\ui\warnings" />
+      <recent name="C:\Users\User\source\repos\open-source\ExeLaunchHandler\constants" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.ExeLaunchHandler">
-    <configuration name="ExeLaunchHandler" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="true" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug-System" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+    <configuration name="ExeLaunchHandler" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-c config.json --ui" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler" CONFIG_NAME="Debug-System" RUN_TARGET_PROJECT_NAME="ExeLaunchHandler" RUN_TARGET_NAME="ExeLaunchHandler">
+    <configuration name="ExeLaunchHandler.Config" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Config" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pipebridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="pipebridge" CONFIG_NAME="Debug-System">
+    <configuration name="ExeLaunchHandler.Constants" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Constants" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.Launch" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Launch" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.Logging" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Logging" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.Pipes" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.Pipes" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.PyPipeBridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.PyPipeBridge" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.ResultsAPI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.ResultsAPI" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExeLaunchHandler.UI" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="ExeLaunchHandler.UI" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pipebridge" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ExeLaunchHandler" TARGET_NAME="pipebridge" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.ExeLaunchHandler.Config" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.Constants" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.Launch" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.Logging" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.Pipes" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.PyPipeBridge" />
+      <item itemvalue="CMake Application.ExeLaunchHandler.ResultsAPI" />
       <item itemvalue="CMake Application.ExeLaunchHandler.UI" />
       <item itemvalue="CMake Application.ExeLaunchHandler" />
       <item itemvalue="CMake Application.pipebridge" />
-      <item itemvalue="CMake Debug.ExeLaunchHandler" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="CMake Debug.ExeLaunchHandler" />
-        <item itemvalue="CMake Debug.ExeLaunchHandler" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="255ec9ca-80a1-49c3-80ef-e7c37d5642e7" name="Changes" comment="" />
-      <created>1754076556488</created>
+      <changelist id="e6f98a45-e32c-41de-8e42-448e5eea13bc" name="Changes" comment="" />
+      <created>1754332823497</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1754076556488</updated>
-      <workItem from="1754076558495" duration="894000" />
-      <workItem from="1754148791153" duration="6611000" />
-      <workItem from="1754156742564" duration="3844000" />
-      <workItem from="1754244211375" duration="1761000" />
-      <workItem from="1754311872130" duration="2000" />
+      <updated>1754332823497</updated>
+      <workItem from="1754332825294" duration="1620000" />
+      <workItem from="1754334474547" duration="5256000" />
+      <workItem from="1754340755564" duration="196000" />
+      <workItem from="1754340965899" duration="16000" />
+      <workItem from="1754340996811" duration="1612000" />
+      <workItem from="1754412379658" duration="12292000" />
     </task>
-    <task id="LOCAL-00001" summary="Refactor project configuration and enhance command line options for UI mode">
+    <task id="LOCAL-00001" summary="refactor: tidy up CMakeLists.txt formatting and include new pipes_tab sources">
       <option name="closed" value="true" />
-      <created>1754149026908</created>
+      <created>1754336287005</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1754149026908</updated>
+      <updated>1754336287005</updated>
     </task>
-    <task id="LOCAL-00002" summary="Enhance Logger class to filter log messages based on configured log level">
+    <task id="LOCAL-00002" summary="refactor: improve formatting and logging in main.cpp">
       <option name="closed" value="true" />
-      <created>1754149153126</created>
+      <created>1754336325224</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1754149153126</updated>
+      <updated>1754336325224</updated>
     </task>
-    <task id="LOCAL-00003" summary="Add logger integration and export functionality for Python pipes">
+    <task id="LOCAL-00003" summary="feat: add PipesTab and update MainWindow to include new settings and pipes tabs">
       <option name="closed" value="true" />
-      <created>1754157192689</created>
+      <created>1754336333922</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1754157192689</updated>
+      <updated>1754336333922</updated>
     </task>
-    <task id="LOCAL-00004" summary="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization">
+    <task id="LOCAL-00004" summary="feat: add Priority handling and update WarnLevels namespace">
       <option name="closed" value="true" />
-      <created>1754157231324</created>
+      <created>1754413397562</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1754157231324</updated>
+      <updated>1754413397562</updated>
     </task>
-    <task id="LOCAL-00005" summary="Refactor Adapter module to use static module name and update workspace configuration">
+    <task id="LOCAL-00005" summary="feat: add process priority handling to LoggerConfig and ExeRunnerConfig">
       <option name="closed" value="true" />
-      <created>1754157281386</created>
+      <created>1754413407160</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1754157281386</updated>
+      <updated>1754413407160</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor: update log level handling to use new namespace structure">
+      <option name="closed" value="true" />
+      <created>1754413415376</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413415376</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor: change GetDescription return type from std::string_view to const std::string&amp;">
+      <option name="closed" value="true" />
+      <created>1754413422106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413422106</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add process priority selection to ConfigTab and update logger level handling">
+      <option name="closed" value="true" />
+      <created>1754413434322</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413434322</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add ProcessLauncher for launching processes with configurable priority">
+      <option name="closed" value="true" />
+      <created>1754413442431</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1754413442431</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: enhance process priority handling with string conversion and type updates">
+      <option name="closed" value="true" />
+      <created>1754418493252</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1754418493252</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor: change launchDetached method to accept const reference for configuration">
+      <option name="closed" value="true" />
+      <created>1754418500102</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1754418500102</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: add ErrorDisplay class for displaying error messages using QMessageBox">
+      <option name="closed" value="true" />
+      <created>1754418512567</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1754418512567</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: update process priority string conversion to use toWString method">
+      <option name="closed" value="true" />
+      <created>1754418520262</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1754418520262</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: integrate ProcessLauncher and ErrorDisplay for enhanced process execution feedback">
+      <option name="closed" value="true" />
+      <created>1754418526873</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1754418526873</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: add SplashScreenWrapper for customizable splash screen display">
+      <option name="closed" value="true" />
+      <created>1754421539273</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1754421539273</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: integrate SplashScreenWrapper for improved user experience during application launch">
+      <option name="closed" value="true" />
+      <created>1754421545828</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1754421545828</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: add application icon and title to main window">
+      <option name="closed" value="true" />
+      <created>1754424706780</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1754424706780</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: implement application core with configuration management and process launching">
+      <option name="closed" value="true" />
+      <created>1754425765732</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1754425765732</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: add log file size management to Logger for memory budget enforcement">
+      <option name="closed" value="true" />
+      <created>1754426277539</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1754426277539</updated>
+    </task>
+    <task id="LOCAL-00020" summary="refactor: rename app.cpp to app.h and global_error_handler.cpp to global_error_handler.h; update function definitions to inline">
+      <option name="closed" value="true" />
+      <created>1754426564967</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1754426564967</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: update splash screen window flags and improve error handling in main function">
+      <option name="closed" value="true" />
+      <created>1754427474728</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1754427474728</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,33 +440,27 @@
     <isAutomaticReloadCMake value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor project configuration and enhance command line options for UI mode" />
-    <MESSAGE value="Enhance Logger class to filter log messages based on configured log level" />
-    <MESSAGE value="Add logger integration and export functionality for Python pipes" />
-    <MESSAGE value="{&#13;&#10;    &quot;error&quot;: {&#13;&#10;        &quot;message&quot;: &quot;You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.&quot;,&#13;&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#13;&#10;        &quot;param&quot;: null,&#13;&#10;        &quot;code&quot;: null&#13;&#10;    }&#13;&#10;}" />
-    <MESSAGE value="Refactor CMake configuration and enhance Python bridge initialization with pipeline synchronization" />
-    <MESSAGE value="Refactor Adapter module to use static module name and update workspace configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Adapter module to use static module name and update workspace configuration" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/python_bridge/Adapter.cpp</url>
-          <line>15</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="$rdi" />
-        <watch expression="$rdi" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="refactor: tidy up CMakeLists.txt formatting and include new pipes_tab sources" />
+    <MESSAGE value="refactor: improve formatting and logging in main.cpp" />
+    <MESSAGE value="feat: add PipesTab and update MainWindow to include new settings and pipes tabs" />
+    <MESSAGE value="feat: add Priority handling and update WarnLevels namespace" />
+    <MESSAGE value="feat: add process priority handling to LoggerConfig and ExeRunnerConfig" />
+    <MESSAGE value="refactor: update log level handling to use new namespace structure" />
+    <MESSAGE value="refactor: change GetDescription return type from std::string_view to const std::string&amp;" />
+    <MESSAGE value="feat: add process priority selection to ConfigTab and update logger level handling" />
+    <MESSAGE value="feat: add ProcessLauncher for launching processes with configurable priority" />
+    <MESSAGE value="feat: enhance process priority handling with string conversion and type updates" />
+    <MESSAGE value="refactor: change launchDetached method to accept const reference for configuration" />
+    <MESSAGE value="feat: add ErrorDisplay class for displaying error messages using QMessageBox" />
+    <MESSAGE value="fix: update process priority string conversion to use toWString method" />
+    <MESSAGE value="feat: integrate ProcessLauncher and ErrorDisplay for enhanced process execution feedback" />
+    <MESSAGE value="feat: add SplashScreenWrapper for customizable splash screen display" />
+    <MESSAGE value="feat: integrate SplashScreenWrapper for improved user experience during application launch" />
+    <MESSAGE value="feat: add application icon and title to main window" />
+    <MESSAGE value="feat: implement application core with configuration management and process launching" />
+    <MESSAGE value="feat: add log file size management to Logger for memory budget enforcement" />
+    <MESSAGE value="refactor: rename app.cpp to app.h and global_error_handler.cpp to global_error_handler.h; update function definitions to inline" />
+    <MESSAGE value="fix: update splash screen window flags and improve error handling in main function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: update splash screen window flags and improve error handling in main function" />
   </component>
 </project>
