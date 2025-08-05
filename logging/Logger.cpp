@@ -22,11 +22,15 @@ namespace Logging {
     }
 
     bool Logger::isOutOfMemoryBudget() const noexcept {
-        if (!std::filesystem::exists(this->config.logFile.value())) {}
+        if (!this->config.logFile.has_value()) return false;
+        if (!std::filesystem::exists(this->config.logFile.value())) return false;
+        if (!this->config.logFileMaxSizeMB.has_value()) return false;
+
         const std::uintmax_t sizeInBytes = std::filesystem::file_size(this->config.logFile.value());
         const std::uintmax_t sizeInMB = sizeInBytes / (1024 * 1024);
         return sizeInMB > this->config.logFileMaxSizeMB.value();
     }
+
 
     Logger &Logger::init(const Configuration::LoggerConfig &config) {
         std::call_once(initOnce, [&]() {
