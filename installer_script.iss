@@ -32,6 +32,8 @@ Source: "out\release-64\ExeLaunchHandler.PyPipeBridge.dll"; DestDir: "{app}"; Ch
 Source: "out\release-64\ExeLaunchHandler.ResultsAPI.dll"; DestDir: "{app}"; Check: Is64BitInstallMode
 Source: "out\release-64\ExeLaunchHandler.UI.dll"; DestDir: "{app}"; Check: Is64BitInstallMode
 Source: "out\release-64\pipebridge.cp310-win_amd64.pyd"; DestDir: "{app}"; Check: Is64BitInstallMode
+Source: "out\release-64\python310.dll"; DestDir: "{app}"; Check: Is64BitInstallMode
+Source: "out\release-64\python310.zip"; DestDir: "{app}"; Check: Is64BitInstallMode
 
 ; === DLL и PYD (32-bit) ===
 Source: "out\release-32\ExeLaunchHandler.Config.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode
@@ -43,6 +45,9 @@ Source: "out\release-32\ExeLaunchHandler.PyPipeBridge.dll"; DestDir: "{app}"; Ch
 Source: "out\release-32\ExeLaunchHandler.ResultsAPI.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode
 Source: "out\release-32\ExeLaunchHandler.UI.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode
 Source: "out\release-32\pipebridge.cp310-win32.pyd"; DestDir: "{app}"; Check: not Is64BitInstallMode
+Source: "out\release-32\python310.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode
+Source: "out\release-32\python310.zip"; DestDir: "{app}"; Check: not Is64BitInstallMode
+
 
 ; === Qt DLL (64-bit) ===
 Source: "out\release-64\Qt5Core.dll"; DestDir: "{app}"; Check: Is64BitInstallMode

@@ -48,3 +48,9 @@ target_link_libraries(ExeLaunchHandler.PyPipeBridge
         ExeLaunchHandler.Logging
         ExeLaunchHandler.Pipes
 )
+
+add_custom_command(TARGET ExeLaunchHandler.PyPipeBridge POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${Python3_RUNTIME_LIBRARY}
+        $<TARGET_FILE_DIR:ExeLaunchHandler>
+)
