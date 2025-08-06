@@ -94,6 +94,12 @@ add_custom_command(TARGET ExeLaunchHandler POST_BUILD
         COMMENT "Copying splash.png to resources directory"
 )
 
+configure_file(
+        "${Python3_ROOT_DIR}/python310.zip"
+        "${CMAKE_BINARY_DIR}/python310.zip"
+        COPYONLY
+)
+
 if(WINDEPLOYQT_EXECUTABLE)
     add_custom_command(TARGET ExeLaunchHandler POST_BUILD
         COMMAND "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:ExeLaunchHandler>"
